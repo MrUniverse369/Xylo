@@ -87,7 +87,7 @@ app.get("/login",(req,res)=>{
 
     app.post("/login",passport.authenticate("local",{
         successRedirect: "/loggedIn",
-        failureRedirect: "/login"
+        failureRedirect: "/Login"
     }))
 
 
@@ -123,12 +123,12 @@ app.post("/register",async (req,res)=>{
 
 
 //GET ROUTES
-app.get("/Products",(req,res)=>{
-    res.render(__dirname+"/public/views/Products.ejs")
+app.get("/products",(req,res)=>{
+    res.render(__dirname+"/public/views/products.ejs")
 })
 
-app.get("/Pricing",(req,res)=>{
-    res.render(__dirname+"/public/views/Pricing.ejs")
+app.get("/pricing",(req,res)=>{
+    res.render(__dirname+"/public/views/pricing.ejs")
 })
 
 app.get("/Customers",(req,res)=>{
