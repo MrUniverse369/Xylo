@@ -41,7 +41,15 @@ app.use(session({
     cookie: { maxAge: 1000*60
     },
 }))
-db.connect();
+
+try {
+    await db.connect();
+  } catch (err) {
+    console.error("Database connection error:", err.message);
+    process.exit(1); 
+  }
+
+  
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static("public"))
 app.use(passport.initialize());
