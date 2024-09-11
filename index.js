@@ -23,13 +23,14 @@ env.config();
     database: process.env.DB,
     port: process.env.DBPORT
 });*/
+
+
 const db = new pg.Client({
     connectionString: process.env.DATABASE_URL,
     ssl: {
       rejectUnauthorized: false
     }
   });
-
 app.set('view engine', 'ejs');
 
 //middleware
@@ -86,31 +87,31 @@ app.get("/login",(req,res)=>{
 app.post("/register",async (req,res)=>{
     const username = req.body["username"]
     const password = req.body["password"]
-   console.log(username)
-   console.log(password)
-   const queryResult = await db.query("SELECT * FROM customers WHERE email = $1",[username])
-console.log(queryResult.rows)
-;
-if(queryResult.rows.length > 0){
-console.log("User exists")
-res.sendStatus(500)
-}
-else{
-    bcrypt.hash(password,saltRounds, async (err,hashedPassword)=>{
-        if(err){
-        console.log(err)
-        }
+
+    try {   
+    const queryResult = await db.query("SELECT * FROM customers WHERE email = $1",[username]);
+    if(queryResult.rows.length > 0){
+    console.log("User exists")
+    res.sendStatus(500)
+    }
     else{
-        try 
-        { await db.query("INSERT INTO customers VALUES($1,$2)",[username,hashedPassword]);
-        res.render(__dirname+"/public/views/login.ejs")
-    
-    } 
-    catch (error) 
-    {
-    console.log(error.message)
-    }}})
-}})
+        bcrypt.hash(password,saltRounds, async (err,hashedPassword)=>{
+            if(err){
+            console.log(err)
+            }
+        else{
+            try 
+            { await db.query("INSERT INTO customers VALUES($1,$2)",[username,hashedPassword]);
+            res.render(__dirname+"/public/views/login.ejs")
+        
+        } 
+        catch (error) 
+        {
+        console.log(error.message)
+        }}})}} catch (error) {
+            console.log(error.message)
+        }
+})
 
 
 //GET ROUTES
