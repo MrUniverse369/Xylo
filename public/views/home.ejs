@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login or Register</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        text-align: center;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .container h1 {
+        margin-bottom: 30px;
+      }
+      .container input[type="submit"] {
+        width: 150px;
+        padding: 10px;
+        margin: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .container input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+      .container .register-button {
+        background-color: #28a745;
+      }
+      .container .register-button:hover {
+        background-color: #218838;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('header.ejs') %>
+    <div class="container">
+      <h1>Welcome</h1>
+      <form action="login" method="GET">
+        <input type="submit" value="Login" />
+      </form>
+      <form action="register" method="GET">
+        <input type="submit" value="Register" class="register-button" />
+      </form>
+    </div>
+    <%- include('footer.ejs') %>
+  </body>
+</html>

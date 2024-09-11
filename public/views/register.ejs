@@ -1,0 +1,29 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+  </head>
+  <body>
+    <%- include('header.ejs') %>
+    <div class="RegisterCon">
+      <div class="RegisterConItem1"></div>
+      <div class="RegisterConItem2">
+        <form action="/register" method="post">
+          <h2>Register</h2>
+          <input type="text" name="username" placeholder="Email" />
+          <input type="password" name="password" placeholder="Password" />
+          <input
+            type="password"
+            name="checkpassword"
+            placeholder="Cornfirm Password"
+          />
+          <button type="submit">Register</button>
+        </form>
+      </div>
+      <div class="RegisterConItem3"></div>
+    </div>
+    <%- include('footer.ejs') %>
+  </body>
+</html>

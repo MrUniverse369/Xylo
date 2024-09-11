@@ -1,0 +1,25 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style></style>
+  </head>
+  <body>
+    <%- include('header.ejs') %>
+    <div class="LoginCon">
+      <div class="LoginInConItem1"></div>
+      <div class="LoginInConItem2">
+        <form action="/login" method="post">
+          <h2>Login</h2>
+          <input type="text" name="username" placeholder="Username" />
+          <input type="password" name="password" placeholder="Password" />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+      <div class="LoginInConItem3"></div>
+    </div>
+    <%- include('footer.ejs') %>
+  </body>
+</html>

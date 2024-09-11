@@ -1,0 +1,119 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ContactSales</title>
+  </head>
+  <body>
+    <%- include('header.ejs') %>
+    <div class="ContactSalesForm">
+      <div class="Item1">
+        <h1>Start selling with XYLO</h1>
+        <p>
+          Fill out your details below and we'll be in touch to chat about what
+          solutions fit your business.
+        </p>
+      </div>
+      <div class="Item2"></div>
+
+      <div class="Item3">
+        <h2>Interest Form</h2>
+        <form action="/ContactSales" method="POST">
+          <!-- Personal Information Fieldset -->
+          <fieldset>
+            <legend>Personal Information</legend>
+      
+            <!-- First Name -->
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" value="<%= formData.firstname || '' %>" required />
+            <% if (errors.firstname) { %>
+              <p class="errMessage"><%= errors.firstname.msg %></p>
+            <% } %>
+            <br />
+      
+            <!-- Last Name -->
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" value="<%= formData.lastname || '' %>" required />
+            <% if (errors.lastname) { %>
+              <p class="errMessage"><%= errors.lastname.msg %></p>
+            <% } %>
+            <br />
+      
+          </fieldset>
+      
+          <!-- Contact Information Fieldset -->
+          <fieldset>
+            <legend>Contact Information</legend>
+      
+            <!-- Email -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<%= formData.email || '' %>" required />
+            <% if (errors.email) { %>
+              <p class="errMessage"><%= errors.email.msg %></p>
+            <% } %>
+            <br />
+      
+            <!-- Phone Number -->
+            <label for="phonenumber">Phone Number:</label>
+            <input type="tel" id="phonenumber" name="phonenumber" value="<%= formData.phonenumber || '' %>" required />
+            <% if (errors.phonenumber) { %>
+              <p  class="errMessage"><%= errors.phonenumber.msg %></p>
+            <% } %>
+            <br />
+          </fieldset>
+      
+          <!-- Interests Fieldset -->
+          <fieldset>
+            <legend>Interests</legend>
+      
+            <!-- Checkboxes for Interests -->
+            <p>What are you most interested in?</p>
+            <div class="checkbox-group">
+              <input type="checkbox" id="pos" name="interest" value="Point of Sale System" 
+              <% if (formData.interest === 'Point of Sale System') { %> checked <% } %> />
+              <label for="pos">Point of Sale System</label><br />
+      
+              <input type="checkbox" id="selfservice" name="interest" value="Self Service Check Out" 
+              <% if (formData.interest === 'Self Service Check Out') { %> checked <% } %> />
+              <label for="selfservice">Self Service Check Out</label><br />
+      
+              <input type="checkbox" id="cardreader" name="interest" value="Card Reader"
+              <% if (formData.interest === 'Card Reader') { %> checked <% } %> />
+              <label for="cardreader">Card Reader</label><br />
+            </div>
+            <% if (errors.interest) { %>
+              <p class="errMessage"><%= errors.interest.msg %></p>
+            <% } %>
+      
+            <!-- Dropdown for How did you hear about us -->
+            <label for="howheard">How did you hear from us?</label>
+            <select id="howheard" name="howheard">
+              <option value="socialmedia" <% if (formData.howheard === 'socialmedia') { %> selected <% } %> >Social Media</option>
+              <option value="searchengine" <% if (formData.howheard === 'searchengine') { %> selected <% } %> >Search Engine</option>
+              <option value="friend" <% if (formData.howheard === 'friend') { %> selected <% } %> >Friend/Referral</option>
+              <option value="other" <% if (formData.howheard === 'other') { %> selected <% } %> >Other</option>
+            </select>
+            <% if (errors.howheard) { %>
+              <p class="errMessage" ><%= errors.howheard.msg %></p>
+            <% } %>
+            <br />
+          </fieldset>
+      
+          <!-- Submit Button -->
+          <button type="submit" value="submit">Submit</button>
+        </form>
+      
+      </div>
+      <div class="Item4"></div>
+      <div class="Item5">
+        <h2>What's next?</h2>
+        <p>
+          As soon as an expert from our sales team processes your form, they'll
+          give you a call within the hour (Mon–Fri).
+        </p>
+      </div>
+    </div>
+    <%- include('footer.ejs') %>
+  </body>
+</html>

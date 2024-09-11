@@ -1,0 +1,91 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <%- include('header.ejs') %>
+
+    <!---Smart tools section -->
+    <section>
+      <div class="SmartTools">
+        <p class="Title">
+          Smart tools <strong>your business</strong><br /><b>needs</b>
+        </p>
+        <p class="SmartToolscontent">
+          From taking payments and selling online to processing orders and
+          managing your money — with Xylo, it’s all possible. 4 million
+          businesses have already chosen us to be their partner, let’s see how
+          we can help you too.
+        </p>
+        <ul>
+          <li><a href="/ContactSales">Contact Sales</a></li>
+          <li><a href="/Shop">Shop hardware</a></li>
+        </ul>
+      </div>
+      <div class="SmartToolsImg">
+        <img src="/img/SmartTools_1.jpg" alt="employees in a small business" />
+        <img src="/img/SmartTools_2.jpg" alt="employees in a small business" />
+        <img src="/img/SmartTools_3.jpg" alt="employees in a small business" />
+      </div>
+    </section>
+    <!--Industry Reviews -->
+    <section>
+      <div class="TrustPilot">
+        <h2>Great</h2>
+        <img src="/img/trustPilot_1.png" alt="industry Review" />
+        <h2>5 out of 5 based on 30,234 reviews</h2>
+        <img src="/img/trustPilot_2.png" alt="industry Review" />
+      </div>
+    </section>
+    <!--Our Full Range of Products part One-->
+    <section>
+      <p>Find out more about <strong>our full range of products</strong></p>
+      <div class="Products_1">
+        <div onclick="window.location.href='/products';">
+          <img src="img/ProductsIcon_1.png" alt="" />
+          <h2>Card Readers</h2>
+        </div>
+        <div onclick="window.location.href='/products';">
+          
+          <img src="img/ProductsIcon_4.png" alt="" />
+          <h2>Pos Solutions</h2>
+        </div>
+          <div  onclick="window.location.href='/products';">
+            
+            <img src="img/ProductsIcon_3.png" alt="" />
+            <h2>Self Service kiosk</h2>
+          </div>
+          <div  onclick="window.location.href='/products';">
+            <img src="img/ProductsIcon_2.png" alt="" />
+            <h2>Invoice</h2>
+          </div>
+          <div onclick="window.location.href='/products';">
+            <img src="img/ProductsIcon_5.png" alt="" />
+            <h2>Business Accounts</h2>
+          </div>
+     
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Product -->
+<section>
+<div class="FeaturedProduct">
+<div class="FPImgCon"><img src="/img/SmartTools_2.jpg"/></div>
+<div class="FPContentCon"><h2>Payments. Software.
+  Hardware. <br>All by Xylo</h2><p>Xylo Register is a fully integrated point-of-sale system 
+  that lets you manage card and contactless payments, online sales, click and collect and delivery, 
+  all from one POS. This touchscreen till system is built to be faster, more powerful and more reliable, 
+  right out of the box – no extra tablets, apps or card terminal required.</p>
+</div>
+</div>
+</section>
+    <section>
+      <div class=""></div>
+    </section>
+    <%- include('footer.ejs') %>
+  </body>
+</html>
