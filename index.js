@@ -87,7 +87,7 @@ app.get("/login",(req,res)=>{
 
     app.post("/login",passport.authenticate("local",{
         successRedirect: "/loggedIn",
-        failureRedirect: "/Login"
+        failureRedirect: "/login"
     }))
 
 
