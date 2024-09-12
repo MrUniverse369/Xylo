@@ -91,35 +91,6 @@ app.get("/Login",(req,res)=>{
     }))
 
 
-//register the user
-app.post("/register",async (req,res)=>{
-    const username = req.body["username"]
-    const password = req.body["password"]
-
-    try {   
-    const queryResult = await db.query("SELECT * FROM customers WHERE email = $1",[username]);
-    if(queryResult.rows.length > 0){
-    console.log("User exists")
-    res.sendStatus(500)
-    }
-    else{
-        bcrypt.hash(password,saltRounds, async (err,hashedPassword)=>{
-            if(err){
-            console.log(err)
-            }
-        else{
-            try 
-            { await db.query("INSERT INTO customers VALUES($1,$2)",[username,hashedPassword]);
-            res.render(__dirname+"/public/views/login.ejs")
-        
-        } 
-        catch (error) 
-        {
-        console.log(error.message)
-        }}})}} catch (error) {
-            console.log(error.message)
-        }
-})
 
 
 //GET ROUTES
@@ -151,6 +122,37 @@ app.get('/ContactSales', (req, res) => {
 
 //POST ROUTES 
 
+//register the user
+app.post("/register",async (req,res)=>{
+    const username = req.body["username"]
+    const password = req.body["password"]
+
+    try {   
+    const queryResult = await db.query("SELECT * FROM customers WHERE email = $1",[username]);
+    if(queryResult.rows.length > 0){
+    console.log("User exists")
+    res.sendStatus(500)
+    }
+    else{
+        bcrypt.hash(password,saltRounds, async (err,hashedPassword)=>{
+            if(err){
+            console.log(err)
+            }
+        else{
+            try 
+            { await db.query("INSERT INTO customers VALUES($1,$2)",[username,hashedPassword]);
+            res.render(__dirname+"/public/views/Login.ejs")
+        
+        } 
+        catch (error) 
+        {
+        console.log(error.message)
+        }}})}} catch (error) {
+            console.log(error.message)
+        }
+})
+
+
 /* Contactsales page form validation  */
 app.post("/ContactSales",   [
     body('firstname').trim().notEmpty().isAlpha().withMessage('Please complete this required field with alphabetic characters only'),
@@ -165,7 +167,7 @@ app.post("/ContactSales",   [
      
   if (!errors.isEmpty()) {
     return res.render(__dirname+"/public/views/ContactSales.ejs", {
-      errors: errors.mapped(), // `mapped()` converts array of errors to an object for easier use
+      errors: errors.mapped(), 
       formData: req.body      
     });
   }
