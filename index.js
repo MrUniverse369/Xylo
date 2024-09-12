@@ -66,12 +66,12 @@ app.get("/register",(req,res)=>{
 })
 
 //Login user
-app.get("/login",(req,res)=>{
+app.get("/Login",(req,res)=>{
    if(req.isAuthenticated()){
     res.render(__dirname+"/public/views/loggedIn.ejs")
    }
    else{
-    res.render(__dirname+"/public/views/login.ejs")
+    res.render(__dirname+"/public/views/Login.ejs")
    }
   })
 
@@ -87,7 +87,7 @@ app.get("/login",(req,res)=>{
 
     app.post("/login",passport.authenticate("local",{
         successRedirect: "/loggedIn",
-        failureRedirect: "/login"
+        failureRedirect: "/Login"
     }))
 
 
