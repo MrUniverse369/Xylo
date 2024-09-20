@@ -1,0 +1,18 @@
+### **XYLO FinTech Web Application**
+
+Welcome to the XYLO FinTech web application! This repository contains the codebase for a fintech platform where users can create accounts, shop for financial products, and contact the sales team for personalized assistance. The application is built using modern web technologies such as Node.js, Express.js, and EJS templating, with PostgreSQL for data management.
+
+### **Features**
+- **User Authentication:** Users can sign up, log in, and manage their accounts.
+- **Shopping System:** Users can browse, add items to a shopping cart, and checkout with selected financial products.
+- **Callback Form:** A contact form that allows users to submit a request for a callback from the sales team.
+- **RESTful APIs:** The application uses REST APIs for efficient data handling.
+- **Session Management:** Secure user sessions are managed using Passport.js.
+
+### **Technology Stack**
+- **Node.js:** JavaScript runtime for server-side programming.
+- **Express.js:** Web framework for building RESTful APIs and handling routing.
+- **EJS (Embedded JavaScript):** Templating engine for rendering dynamic web pages.
+- **PostgreSQL:** Relational database used to store user and transaction data.
+- **Passport.js:** Authentication middleware to manage user sessions.
+
