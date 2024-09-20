@@ -2,7 +2,7 @@
 
 <img width="1440" alt="Xylo" src="https://github.com/user-attachments/assets/40a4ec40-871c-4a08-83c7-e00ad62e1706">
 
-Welcome to the XYLO FinTech web application! This repository contains the codebase for a fintech platform where users can create accounts, shop for financial products, and contact the sales team for personalized assistance. The application is built using modern web technologies such as Node.js, Express.js, and EJS templating, with PostgreSQL for data management.
+Welcome to the XYLO FinTech web application! This repository contains the codebase for a fintech platform where users can create accounts, shop for payment hardware and software, and contact the sales team for personalized assistance. The application is built using modern web technologies such as Node.js, Express.js, and EJS templating, with PostgreSQL for data management.
 
 ### **Features**
 - **User Authentication:** Users can sign up, log in, and manage their accounts.
