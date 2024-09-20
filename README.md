@@ -18,3 +18,18 @@ Welcome to the XYLO FinTech web application! This repository contains the codeba
 - **PostgreSQL:** Relational database used to store user and transaction data.
 - **Passport.js:** Authentication middleware to manage user sessions.
 
+### **Usage**
+### **User Authentication**
+
+**- Sign up:** Users can register with their email and password.
+**- Login:** Existing users can log in using their credentials.
+**- Session Management:** User sessions are maintained via Passport.js for secure authentication.
+
+### **Shopping System**
+
+**- Add to Cart:** Browse financial products and add them to the cart.
+**- Checkout:** Proceed to the checkout page to complete purchases.
+
+### **Callback Form**
+
+**- Contact Sales:** Fill in a callback form with your contact details to get in touch with the sales team.
