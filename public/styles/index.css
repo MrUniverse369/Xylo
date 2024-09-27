@@ -103,12 +103,14 @@ padding-right: 7rem;
     justify-content: center;
     font-style: none;
     list-style: none;
-    margin-right: 3rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    padding: 0rem;
 }
 
 .SmartTools>ul>li{
   margin-right: 0.5rem;
-  font-size: 1rem;
   text-align: center;
   color: aliceblue;
   background-color: black;
@@ -186,7 +188,7 @@ grid-template-rows: 1fr;
 font-size: 1.5rem;
   }
 
-/*Featured Page */
+/*------------------------Featured Product ------------------------ */
 .FeaturedProduct{
     display: flex;
     flex-direction: row;
@@ -297,10 +299,9 @@ margin-top: 2rem;
     background-color: blueviolet;
 }
 
+/*------------------------------------------------------------------------ PRICING ------------------------------------------------*/
 
-
-  /*------------------------ PRICING ------------------------*/
-  .PricingCon{
+.PricingCon{
     display: grid;
     grid-template-columns: 100px,100px,100px;
     grid-template-rows: 100px,100px,100px;
@@ -692,17 +693,21 @@ font-size: 4rem;
     font-size: 2rem;
     color: red;
   }
+
 /*-------------------------------------------------------- Mobile ---------------------------------------------------------------------*/
 
 /*------------------------------ Header ------------------------------*/
-@media(max-width:400px){ 
+@media(max-width:700px){ 
 .header{
     font-size: 0.5rem;
 }}
-
+.footer{
+    font-size: 0.5rem;
+}
 /*------------------------------  900px MultiPage Components  ------------------------------*/
 
 @media(max-width:900px){   
+
     .btn{
         text-decoration: none;
         background-color:aliceblue;
@@ -712,19 +717,21 @@ font-size: 4rem;
         border-radius: 0.6rem;
     }
     
-    .btn:hover{
+.btn:hover{
         background-color: blueviolet;
     } 
     
-    /*------------------------------ 900px Home Page ------------------------------*/
+/*------------------------------ Home Page ------------------------------*/
     .Products_1>div>h2{
-    font-size: 1rem;
-
-    
-}}
+    font-size: 1rem;}}
 
 @media(max-width:700px){
-/*------------------------------  700px MultiPage Components  ------------------------------*/
+
+/*--------------------------------------------------  700px MultiPage Components  --------------------------------------------------*/
+.TitleCenter{
+    font-size: 2.5rem;
+}
+
     .btn{
         display: inline-block;
         text-decoration: none;
@@ -756,69 +763,149 @@ font-size: 4rem;
     margin-top: 1rem;
 }
 
-    /*------------------------------ Products section ------------------------------*/
-    .Products_1>div{
-        align-items: center;
-          text-align: center;
-          margin-left: 2rem;
-          margin-right: 2rem;
-          padding-top: 1rem;
-        border-radius: 1rem;
-        border-color: black;
-        border-style: solid;
-         }
-       
-         .Products_1>div:hover{ 
-          background-color: purple;
-       }
-       
-       .Products_1>div>img{
-           max-width: 50%;
-           height: auto;
-         }
+/*------------------------------ Products section ------------------------------*/
 
-         .TitleCenter{
-            font-size: 2.5rem;
-            text-align: center;
-          }
+          /*------*/
+
+          .Products_1{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          
+        }
+        .Products_1>div{
+         margin-top: 1rem;
+         max-width: 60%;
+             }
+    
+        .Products_1>div>h2{
+            font-size: 1rem;
+              }
+    
+                   
+             .Products_1>div:hover{ 
+                background-color: purple;
+             }
+             
+             .Products_1>div>img{
+                 max-width: 25%;
+                 height: auto;
+               }
+      
+               .Products_1>div>h2{
+                font-size: 1.5rem;
+                  }
+    
+    
+    .FeaturedProduct{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       background-color: black;
+        color: aliceblue;
+        margin-bottom: 0rem;
+    }
+    
           
       
 }
 
+/*------------------------------------------------------------ 600Px ------------------------------------------------------------*/
+
 @media(max-width:600px){
-    .Products_1{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      
-    }
-    .Products_1>div{
-     margin-top: 1rem;
-     max-width: 60%;
-         }
-
-    .Products_1>div>h2{
-        font-size: 1rem;
-          }
-
-               
-         .Products_1>div:hover{ 
-            background-color: purple;
-         }
-         
-         .Products_1>div>img{
-             max-width: 25%;
-             height: auto;
-           }
-  
-           .Products_1>div>h2{
-            font-size: 1.5rem;
-              }
 
    
 }
 
+/*------------------------------ 360Px------------------------------*/
 
+@media(max-width:360px){
+
+
+/*------------------------------ Smart tools section ------------------------------*/
+
+    .TitleCenter{
+        font-size: 1.5rem;
+    }
+    
+    .SmartToolsContent{
+        font-size: 0.7rem;
+      
+    }
+
+    .SmartTools{
+        margin-left: 0rem;
+        margin-right: 0rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+    .SmartTools>ul{
+        display: flex;
+        flex-direction: column;
+     
+        font-style: none;
+        list-style: none;
+        font-size: 0.5rem;
+        margin-right: 0rem;
+        padding: 0rem;
+    }
+
+    .SmartTools>ul>li{
+margin-top: 1rem;
+
+    }
+
+
+/*--------------------------------- Featured Product ---------------------------------*/
+
+.FeaturedProduct{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   background-color: black;
+    color: aliceblue;
+    margin-bottom: 0rem;
+}
+.FeaturedProductItemTwo{
+margin-left: 2rem;
+}
+
+.FeaturedProductItemOne>img{
+    max-width: 100%;
+}
+
+.FeaturedProduct>div>ul{
+list-style-type: none;
+display: flex;
+align-items: flex-start;
+padding: 0rem;
+
+}
+
+    .FeaturedProduct>div>ul>li{
+    margin-left: 1rem;
+    margin-top: 2rem;
+    
+    }
+    
+    .FPContentCon>h2{
+            font-size: 3rem;
+            margin-bottom: 0rem;
+            padding-left: 0rem;
+            padding-right: 12rem;
+        }
+    
+    .FPContentCon>p{
+            font-size: 1.5rem;
+            padding-left: 5rem;
+            padding-right: 5rem;
+            padding-top: 2rem;
+            padding-bottom: 0rem;
+            margin: 0rem;
+        }
+    
+
+}
 
 
 /*------------------------------ ContactSales Form Mobile ------------------------------*/
