@@ -25,6 +25,11 @@ a,ul {
     color: inherit;
   }
 
+
+
+
+/*Home Page Styles */
+
 .header{
     display: grid;
     justify-content: flex-start;
@@ -32,7 +37,6 @@ a,ul {
     background-color: black;
     color: aliceblue;
     border-bottom: 3px solid rgb(132, 132, 132);
-    font-size: 1rem;
 }
 
 .HeaderContainerthree{
@@ -51,6 +55,7 @@ a,ul {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    font-size: 1rem;
     margin-top: 2rem;
     margin-left: 0rem;
     margin-bottom: 1rem;
@@ -60,6 +65,7 @@ a,ul {
 .HeaderContainerfour>nav>ul>li,.HeaderContainerTwo>nav>ul>li{
 font-style: none;
 list-style: none;
+font-size: 2rem;
 margin-left: 0.5rem;
 margin-right: 0.5rem;
 padding-left: 1rem;
@@ -144,7 +150,7 @@ padding-right: 7rem;
 
 
 /*Products Section One on  HomePage*/
-.TitleCenter{
+section>p{
     font-size: 3rem;
     text-align: center;
   }
@@ -284,10 +290,8 @@ margin-top: 2rem;
 
 
 .btn{
-    display: inline-block;
     text-decoration: none;
     background-color:aliceblue;
-    font-size: 20px;
     color: black;
     padding: 10px 20px;
     border-radius: 5px;
@@ -692,71 +696,10 @@ font-size: 4rem;
     font-size: 2rem;
     color: red;
   }
-/*-------------------------------------------------------- Mobile ---------------------------------------------------------------------*/
+/*------------------------------ Mobile ------------------------------*/
 
-/*------------------------------ Header ------------------------------*/
-@media(max-width:400px){ 
-.header{
-    font-size: 0.5rem;
-}}
-
-/*------------------------------  900px MultiPage Components  ------------------------------*/
-
-@media(max-width:900px){   
-    .btn{
-        text-decoration: none;
-        background-color:aliceblue;
-        color: black;
-        padding: 0.5rem;
-        font-size: 1rem;
-        border-radius: 0.6rem;
-    }
-    
-    .btn:hover{
-        background-color: blueviolet;
-    } 
-    
-    /*------------------------------ 900px Home Page ------------------------------*/
-    .Products_1>div>h2{
-    font-size: 1rem;
-
-    
-}}
-
+/*------------------------------ Home Page ------------------------------*/
 @media(max-width:700px){
-/*------------------------------  700px MultiPage Components  ------------------------------*/
-    .btn{
-        display: inline-block;
-        text-decoration: none;
-        background-color:aliceblue;
-        color: black;
-        padding: 10px;
-        font-size: 10px;
-        border-radius: 0.6rem;
-    }
-    
-    .btn:hover{
-        background-color: blueviolet;
-    } 
-
-/*------------------------------ Smart tools section ------------------------------*/
-.SmartToolsImg {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.SmartToolsImg>img{
-    max-width: 50%;
-    height: auto;
-    border-radius: 1.5rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-top: 1rem;
-}
-
-    /*------------------------------ Products section ------------------------------*/
     .Products_1>div{
         align-items: center;
           text-align: center;
@@ -777,49 +720,12 @@ font-size: 4rem;
            height: auto;
          }
 
-         .TitleCenter{
-            font-size: 2.5rem;
-            text-align: center;
-          }
-          
-      
-}
-
-@media(max-width:600px){
-    .Products_1{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      
-    }
-    .Products_1>div{
-     margin-top: 1rem;
-     max-width: 60%;
-         }
-
-    .Products_1>div>h2{
-        font-size: 1rem;
-          }
-
-               
-         .Products_1>div:hover{ 
-            background-color: purple;
-         }
-         
-         .Products_1>div>img{
-             max-width: 25%;
-             height: auto;
-           }
-  
-           .Products_1>div>h2{
-            font-size: 1.5rem;
+         .Products_1>div>h2{
+            font-size: 1rem;
               }
+       
 
-   
 }
-
-
-
 
 /*------------------------------ ContactSales Form Mobile ------------------------------*/
 @media(max-width:700px){
