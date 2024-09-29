@@ -14,26 +14,43 @@
   </head>
   <body>
     <div class="Header">
-      <div class="HeaderContainerOne"></div>
-      <div class="HeaderContainertwo">
-        <nav>
-          <ul>
+      <div class="HeaderContainer">
+        <nav class="navbar">
+          <!-- Burger Menu -->
+          <div class="nav-header">
+            <div class="burger-menu" id="burgerMenu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <!-- Left-side Navigation Links -->
+          <ul class="nav-links left-menu" id="leftMenu">
             <li><a href="/">XYLO</a></li>
             <li><a href="/Products">Products</a></li>
             <li><a href="/Pricing">Pricing</a></li>
-            <li><a href="/Shop">Shop</a></li></li>
+            <li><a href="/Shop">Shop</a></li>
           </ul>
-        </nav>
-      </div>
-      <div class="HeaderContainerfour">
-        <nav>
-          <ul>
 
+          <!-- Right-side Navigation Links -->
+          <ul class="nav-links right-menu" id="rightMenu">
             <li><a href="/login">Login</a></li>
             <li><a href="/register">Register</a></li>
           </ul>
         </nav>
       </div>
     </div>
+
+    <script>
+      const burgerMenu = document.getElementById("burgerMenu");
+      const leftMenu = document.getElementById("leftMenu");
+      const rightMenu = document.getElementById("rightMenu");
+
+      burgerMenu.addEventListener("click", () => {
+        leftMenu.classList.toggle("active");
+        rightMenu.classList.toggle("active");
+      });
+    </script>
   </body>
 </html>

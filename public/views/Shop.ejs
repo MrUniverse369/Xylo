@@ -7,98 +7,85 @@
   </head>
   <body>
     <%- include('header.ejs') %>
-    <div class="ShopCart">
-      <form action="/Cart" method="GET">
-        <button type="submit">Go to Cart</button>
+    <div class="shopping-cart">
+      <!-- Shopping Cart Section -->
+      <form action="/Cart" method="GET" class="cart-form">
+        <button type="submit" class="btn-cart">Go to Cart</button>
       </form>
-      <h2>Total:£<%=locals.CartTotal %></h2>
+      <h2 class="cart-total">Total: £<%= locals.CartTotal %></h2>
     </div>
-    <div class="ShopTitle">
-      <h1>Select Your Products</h1>
+
+    <!-- Product Section -->
+    <div>
+      <h1 class="title-center">Select Your Products</h1>
     </div>
-    <div class="ShopCon">
-      <div class="ShopItem1">
-        <div>
-          <img src="/img/ProductPos_1.webp" />
-          <h2>TransactPro</h2>
-          <h3>£39</h3>
-          <div>
-            <form action="/basket" method="POST">
-              <input type="hidden" name="id" value="0" />
-              <button type="submit" value="submit">Add to Cart</button>
-            </form>
-          </div>
-        </div>
+
+    <!-- Shop Container -->
+    <div class="shop-container">
+      <!-- Product Item 1 -->
+      <div class="shop-item">
+        <img src="/img/ProductPos_1.webp" alt="TransactPro" />
+        <h2>TransactPro</h2>
+        <h3>£39</h3>
+        <form action="/basket" method="POST" class="add-to-cart-form">
+          <input type="hidden" name="id" value="0" />
+          <button type="submit" class="btn-add">Add to Cart</button>
+        </form>
       </div>
 
-      <div class="ShopItem2">
-        <div>
-          <img src="/img/ProductCardReader_2.webp" />
-          <h2>SwipeEase</h2>
-          <h3>£39</h3>
-          <div>
-            <form action="/basket" method="POST">
-              <input type="hidden" name="id" value="1" />
-              <button type="submit" value="submit">Add to Cart</button>
-            </form>
-          </div>
-        </div>
+      <!-- Product Item 2 -->
+      <div class="shop-item">
+        <img src="/img/ProductCardReader_2.webp" alt="SwipeEase" />
+        <h2>SwipeEase</h2>
+        <h3>£39</h3>
+        <form action="/basket" method="POST" class="add-to-cart-form">
+          <input type="hidden" name="id" value="1" />
+          <button type="submit" class="btn-add">Add to Cart</button>
+        </form>
       </div>
 
-      <div class="ShopItem3">
-        <div>
-          <img src="/img/ProductSelfService_3.webp" />
-          <h2>SelfServePro</h2>
-          <h3>£39</h3>
-          <div>
-            <form action="/basket" method="POST">
-              <input type="hidden" name="id" value="2" />
-              <button type="submit" value="submit">Add to Cart</button>
-            </form>
-          </div>
-        </div>
+      <!-- Product Item 3 -->
+      <div class="shop-item">
+        <img src="/img/ProductSelfService_3.webp" alt="SelfServePro" />
+        <h2>SelfServePro</h2>
+        <h3>£39</h3>
+        <form action="/basket" method="POST" class="add-to-cart-form">
+          <input type="hidden" name="id" value="2" />
+          <button type="submit" class="btn-add">Add to Cart</button>
+        </form>
       </div>
 
-      <div class="ShopItem4">
-        <div>
-          <img src="/img/ProductSelfService_3.webp" />
-          <h2>SelfServePro</h2>
-          <h3>£39</h3>
-          <div>
-            <form action="/basket" method="POST">
-              <input type="hidden" name="id" value="3" />
-              <button type="submit" value="submit">Add to Cart</button>
-            </form>
-          </div>
-        </div>
+      <!-- Product Item 4 -->
+      <div class="shop-item">
+        <img src="/img/ProductSelfService_3.webp" alt="SelfServePro" />
+        <h2>SelfServePro</h2>
+        <h3>£39</h3>
+        <form action="/basket" method="POST" class="add-to-cart-form">
+          <input type="hidden" name="id" value="3" />
+          <button type="submit" class="btn-add">Add to Cart</button>
+        </form>
       </div>
 
-      <div class="ShopItem5">
-        <div>
-          <img src="/img/ProductSelfService_3.webp" />
-          <h2>SelfServePro5000</h2>
-          <h3>£39</h3>
-          <div>
-            <form action="/basket" method="POST">
-              <input type="hidden" name="id" value="4" />
-              <button type="submit" value="submit">Add to Cart</button>
-            </form>
-          </div>
-        </div>
+      <!-- Product Item 5 -->
+      <div class="shop-item">
+        <img src="/img/ProductSelfService_3.webp" alt="SelfServePro5000" />
+        <h2>SelfServePro5000</h2>
+        <h3>£39</h3>
+        <form action="/basket" method="POST" class="add-to-cart-form">
+          <input type="hidden" name="id" value="4" />
+          <button type="submit" class="btn-add">Add to Cart</button>
+        </form>
       </div>
 
-      <div class="ShopItem6">
-        <div>
-          <img src="/img/ProductSelfService_3.webp" />
-          <h2>SelfServePro</h2>
-          <h3>£39</h3>
-          <div>
-            <form action="/basket" method="POST">
-              <input type="hidden" name="id" value="5" />
-              <button type="submit" value="submit">Add to Cart</button>
-            </form>
-          </div>
-        </div>
+      <!-- Product Item 6 -->
+      <div class="shop-item">
+        <img src="/img/ProductSelfService_3.webp" alt="SelfServePro" />
+        <h2>SelfServePro</h2>
+        <h3>£39</h3>
+        <form action="/basket" method="POST" class="add-to-cart-form">
+          <input type="hidden" name="id" value="5" />
+          <button type="submit" class="btn-add">Add to Cart</button>
+        </form>
       </div>
     </div>
 
