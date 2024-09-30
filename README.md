@@ -4,6 +4,9 @@
 
 Welcome to the XYLO FinTech web application! This repository contains the codebase for a fintech platform where users can create accounts, shop for payment hardware and software, and contact the sales team for personalized assistance. The application is built using modern web technologies such as Node.js, Express.js, and EJS templating, with PostgreSQL for data management.
 
+### **Trello Board**
+https://trello.com/b/3QKDFDWX/xylo
+
 ### **Features**
 - **User Authentication:** Users can sign up, log in, and manage their accounts.
 - **Shopping System:** Users can browse, add items to a shopping cart, and checkout with selected financial products.
