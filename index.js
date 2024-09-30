@@ -16,13 +16,13 @@ const saltRounds = 15;
 const __dirname = dirname(fileURLToPath(import.meta.url));
 env.config();
 
-const db = new pg.Client({
+ /*const db = new pg.Client({
     user: process.env.DBUSER,
     host:process.env.DBHOST,
     password: process.env.DBPASSWORD,
     database: process.env.DB,
     port: process.env.DBPORT
-});
+});*/
 
 
  const db = new pg.Client({
@@ -35,13 +35,13 @@ const db = new pg.Client({
 app.set('view engine', 'ejs');
 
 //middleware
- /*app.use(session({
+app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized:true,
     cookie: { maxAge: 1000*60
     },
-}))*/
+}))
 
 try {
     await db.connect();
