@@ -16,7 +16,7 @@ const saltRounds = 15;
 const __dirname = dirname(fileURLToPath(import.meta.url));
 env.config();
 
-/*const db = new pg.Client({
+ /*const db = new pg.Client({
     user: process.env.DBUSER,
     host:process.env.DBHOST,
     password: process.env.DBPASSWORD,
@@ -25,7 +25,7 @@ env.config();
 });*/
 
 
-  const db = new pg.Client({
+ const db = new pg.Client({
     connectionString: process.env.DATABASE_URL,
     ssl: {
       rejectUnauthorized: false

@@ -142,7 +142,7 @@ body{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-   font-size: 1rem;
+    font-size: 1rem;
     padding-top: 15px;
     padding-bottom: 15px;
     margin-left: 15px;
@@ -155,8 +155,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: start;
+    list-style: none;
 }
-
 
 
 
@@ -185,7 +185,7 @@ padding-right: 7rem;
     margin-bottom: 3rem;
     padding: 0rem;
 }
-
+/* Styling for the Contact Sales and  Shop Hardware buttons in the smart tools section */
 .SmartTools>ul>li{
   margin-right: 0.5rem;
   text-align: center;
@@ -198,9 +198,6 @@ padding-right: 7rem;
    background-color: blueviolet;
   }
 
-.Title{
-    font-size: 3.5rem;
-}
 .SmartToolsContent{
     font-size: 1.5rem;
 }
@@ -921,19 +918,21 @@ p{
       
 
 
-/*------------------------------ 360Px------------------------------*/
+/*------------------------------ 500Px------------------------------*/
 
-@media(max-width:360px){
+@media(max-width:500px){
 
 
 /*------------------------------ Smart tools section ------------------------------*/
 
     .TitleCenter{
+        margin-top: 1rem;
         font-size: 1.5rem;
     }
     
     .SmartToolsContent{
-        font-size: 0.7rem;
+        margin-top: 1rem;
+        font-size: 1rem;
       
     }
 
