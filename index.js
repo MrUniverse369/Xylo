@@ -25,23 +25,23 @@ const db = new pg.Client({
 });
 
 
-  /*const db = new pg.Client({
+ const db = new pg.Client({
     connectionString: process.env.DATABASE_URL,
     ssl: {
       rejectUnauthorized: false
     }
-  });*/
+  });
 
 app.set('view engine', 'ejs');
 
 //middleware
-app.use(session({
+ /*app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized:true,
     cookie: { maxAge: 1000*60
     },
-}))
+}))*/
 
 try {
     await db.connect();
