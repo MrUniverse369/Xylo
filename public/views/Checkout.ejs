@@ -1,0 +1,23 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+  </head>
+  <body>
+    <%- include('header.ejs') %>
+    <div class="checkout-success-container">
+      <h1 class="checkout-title">Thank You for Your Purchase!</h1>
+      <p class="checkout-message">
+        Your order was successful. We appreciate your business and hope to see
+        you again soon.
+      </p>
+
+      <div class="checkout-buttons">
+        <a href="/shop" class="btn-continue-shopping">Continue Shopping</a>
+        <a href="/" class="btn-home">Go to Home Page</a>
+      </div>
+    </div>
+    <%- include('footer.ejs') %>
+  </body>
+</html>

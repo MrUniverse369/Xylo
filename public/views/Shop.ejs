@@ -7,12 +7,20 @@
   </head>
   <body>
     <%- include('header.ejs') %>
+
+    <!-- Cart Summary at the top of the shop page -->
+    <div class="shopping-cart-summary">
+      <h2>Shopping Cart Summary</h2>
+      <p>Total Items: <%= locals.totalQuantity %></p>
+      <p>Total Price: £<%= cartTotal.toFixed(2) %></p>
+    </div>
+
     <div class="shopping-cart">
       <!-- Shopping Cart Section -->
-      <form action="/Cart" method="GET" class="cart-form">
+      <form action="/cart" method="GET" class="cart-form">
         <button type="submit" class="btn-cart">Go to Cart</button>
       </form>
-      <h2 class="cart-total">Total: £<%= locals.CartTotal %></h2>
+      <h2 class="cart-total">Total: £<%= cartTotal.toFixed(2) %></h2>
     </div>
 
     <!-- Product Section -->
@@ -22,71 +30,27 @@
 
     <!-- Shop Container -->
     <div class="shop-container">
-      <!-- Product Item 1 -->
+      <% const products = [ { id: 0, name: "TransactPro", price: 39, image:
+      "/img/ProductPos_1.webp" }, { id: 1, name: "SwipeEase", price: 39, image:
+      "/img/ProductCardReader_2.webp" }, { id: 2, name: "SelfServePro", price:
+      39, image: "/img/ProductSelfService_3.webp" }, { id: 3, name:
+      "SelfServePro", price: 39, image: "/img/ProductSelfService_3.webp" }, {
+      id: 4, name: "SelfServePro5000", price: 39, image:
+      "/img/ProductSelfService_3.webp" }, { id: 5, name: "SelfServePro", price:
+      39, image: "/img/ProductSelfService_3.webp" } ]; %> <%
+      products.forEach(product => { %>
       <div class="shop-item">
-        <img src="/img/ProductPos_1.webp" alt="TransactPro" />
-        <h2>TransactPro</h2>
-        <h3>£39</h3>
-        <form action="/basket" method="POST" class="add-to-cart-form">
-          <input type="hidden" name="id" value="0" />
+        <img src="<%= product.image %>" alt="<%= product.name %>" />
+        <h2><%= product.name %></h2>
+        <h3>£<%= product.price %></h3>
+        <form action="/cart/add" method="POST" class="add-to-cart-form">
+          <input type="hidden" name="id" value="<%= product.id %>" />
+          <input type="hidden" name="name" value="<%= product.name %>" />
+          <input type="hidden" name="price" value="<%= product.price %>" />
           <button type="submit" class="btn-add">Add to Cart</button>
         </form>
       </div>
-
-      <!-- Product Item 2 -->
-      <div class="shop-item">
-        <img src="/img/ProductCardReader_2.webp" alt="SwipeEase" />
-        <h2>SwipeEase</h2>
-        <h3>£39</h3>
-        <form action="/basket" method="POST" class="add-to-cart-form">
-          <input type="hidden" name="id" value="1" />
-          <button type="submit" class="btn-add">Add to Cart</button>
-        </form>
-      </div>
-
-      <!-- Product Item 3 -->
-      <div class="shop-item">
-        <img src="/img/ProductSelfService_3.webp" alt="SelfServePro" />
-        <h2>SelfServePro</h2>
-        <h3>£39</h3>
-        <form action="/basket" method="POST" class="add-to-cart-form">
-          <input type="hidden" name="id" value="2" />
-          <button type="submit" class="btn-add">Add to Cart</button>
-        </form>
-      </div>
-
-      <!-- Product Item 4 -->
-      <div class="shop-item">
-        <img src="/img/ProductSelfService_3.webp" alt="SelfServePro" />
-        <h2>SelfServePro</h2>
-        <h3>£39</h3>
-        <form action="/basket" method="POST" class="add-to-cart-form">
-          <input type="hidden" name="id" value="3" />
-          <button type="submit" class="btn-add">Add to Cart</button>
-        </form>
-      </div>
-
-      <!-- Product Item 5 -->
-      <div class="shop-item">
-        <img src="/img/ProductSelfService_3.webp" alt="SelfServePro5000" />
-        <h2>SelfServePro5000</h2>
-        <h3>£39</h3>
-        <form action="/basket" method="POST" class="add-to-cart-form">
-          <input type="hidden" name="id" value="4" />
-          <button type="submit" class="btn-add">Add to Cart</button>
-        </form>
-      </div>
-
-      <!-- Product Item 6 -->
-      <div class="shop-item">
-        <img src="/img/ProductSelfService_3.webp" alt="SelfServePro" />
-        <h2>SelfServePro</h2>
-        <h3>£39</h3>
-        <form action="/basket" method="POST" class="add-to-cart-form">
-          <input type="hidden" name="id" value="5" />
-          <button type="submit" class="btn-add">Add to Cart</button>
-        </form>
-      </div>
+      <% }) %>
     </div>
 
     <%- include('footer.ejs') %>

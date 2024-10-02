@@ -142,6 +142,7 @@ body{
     background-color: #000000;
     border-top: 2px whitesmoke solid;
     margin-bottom: 0px;
+    padding-top: 0px;
 }
 
 .footerList{
@@ -567,7 +568,272 @@ margin-right: 1rem;
     
   }
 
+  /*------------------------------------------------------------Cart-------------------------------------------------------------*/
+/* Main Cart Container */
+.cart-container {
+  max-width: 1900px;
+  margin-top: 200px;
+  margin-bottom: 400px;
 
+  padding: 20px;
+}
+
+.cart-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+/* Cart Table */
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+.cart-table th,
+.cart-table td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.cart-table th {
+  font-size: 1.5rem;
+  background-color: #f5f5f5;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+}
+
+.product-image {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.quantity-input {
+  width: 60px;
+  padding: 5px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.btn-update,
+.btn-remove,
+.btn-checkout,
+.btn-continue-shopping {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-update:hover,
+.btn-remove:hover,
+.btn-checkout:hover,
+.btn-continue-shopping:hover {
+  background-color: #0056b3;
+}
+
+.btn-remove {
+  background-color: #ff4c4c;
+}
+
+.btn-remove:hover {
+  background-color: #cc0000;
+}
+
+/* Cart Summary */
+.cart-summary {
+  text-align: right;
+}
+
+.cart-summary h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.empty-message {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.btn-continue-shopping {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  padding: 15px 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cart-container {
+    padding: 10px;
+  }
+
+  .cart-title {
+    font-size: 2rem;
+  }
+
+  .cart-table thead {
+    display: none;
+  }
+
+  .cart-table tbody,
+  .cart-table tr,
+  .cart-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .cart-table tr {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .cart-table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+    border: none;
+  }
+
+  .cart-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 45%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .product-info {
+    display: block;
+    text-align: center;
+  }
+
+  .product-image {
+    margin: 0 auto 15px auto;
+  }
+
+  .quantity-input {
+    width: 50px;
+  }
+
+  .cart-summary {
+    text-align: center;
+  }
+
+  .cart-summary h2 {
+    font-size: 1.8rem;
+  }
+
+  .btn-checkout {
+    width: 100%;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-title {
+    font-size: 1.8rem;
+  }
+
+  .cart-summary h2 {
+    font-size: 1.6rem;
+  }
+
+  .btn-continue-shopping {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
+
+/*--------------------------------------------------------------------------CheckOut Success ----------------------------------------------------------------------*/
+.checkout-success-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 200px;
+  margin-bottom: 200px;
+}
+
+.checkout-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #470f91;
+}
+
+.checkout-message {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+
+.checkout-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-continue-shopping, .btn-home {
+  padding: 15px 30px;
+  background-color: #000000;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-home {
+  background-color: #000000;
+}
+
+.btn-continue-shopping:hover {
+  background-color: #470f91;
+}
+
+.btn-home:hover {
+  background-color: #470f91;
+}
+
+@media screen and (max-width: 700px) {
+  .btn-continue-shopping, .btn-home ,.checkout-message, .checkout-title {
+    font-size: 1.5rem;
+ }
+
+ .btn-continue-shopping, .btn-home {
+  padding: 5px 10px;
+ }
+
+ .checkout-success-container {
+  padding: 0px;
+  margin-left: 0px;
+  margin-right: 0px;}
+}
+
+@media screen and (max-width: 500px) {
+  .btn-continue-shopping, .btn-home ,.checkout-message, .checkout-title {
+    font-size: 1rem;
+ }
+
+ .btn-continue-shopping, .btn-home {
+  padding: 5px 10px;
+ }
+}
 /*------------------------------ ContactSales Form ------------------------------*/
 /* Main Grid Layout */
 .ContactSalesForm {
@@ -578,8 +844,6 @@ margin-right: 1rem;
         'a a a'
         'b c d'
         'e e e';
-    gap: 50px;
-    padding: 0px;
 }
 
 /* Item1 Styles - Header */
@@ -610,7 +874,10 @@ margin-right: 1rem;
     font-size: 1.2rem;
     padding: 3rem;
     border-radius: 8px;
-    margin: 0 auto;
+   margin-top: 50px;
+   margin-bottom: 50px;
+   margin-left: 100px;
+   margin-right: 100px;
 }
 
 .Item3 > h2 {
@@ -727,6 +994,11 @@ margin-right: 1rem;
         font-size: 1.2rem;
         padding: 10px;
     }
+
+    .Item5{
+      padding-bottom: 400px;
+      margin: 0rem;
+    }
 }
 
 /* Mobile (Small devices, 576px and below) */
@@ -763,78 +1035,285 @@ margin-right: 1rem;
         font-size: 1rem;
         padding: 8px;
     }
+   
 }
 
 
 /*------------------------------ LogIn page form ------------------------------*/
-.LoginCon,.RegisterCon{
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: grid;
-    grid-template-columns: 1fr,4fr 1fr;
-    grid-template-rows: minmax(100px auto);
-    height: 100vh;
-    grid-template-areas: 
+.LoginCon, .RegisterCon {
+  font-family: Arial, sans-serif;
+  background-color: #e9e9e9;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: minmax(100px, auto);
+  height: 100vh;
+  grid-template-areas:
     'a b c'
     'a b c'
     'a b c';
-
-
-  
 }
-.LoginInConItem1{
+
+/* Sidebar and Content Sections */
+.LoginInConItem1 {
   grid-area: a;
- 
-}
-.LoginInConItem2,.RegisterConItem2{
-    grid-area: b;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    
 }
 
-.LoginInConItem3{
-    grid-area: c;
-    
+.LoginInConItem2, .RegisterConItem2 {
+  grid-area: b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.LoginInConItem3 {
+  grid-area: c;
+}
+
+/* Form Styles */
+.LoginInConItem2 > form, .RegisterConItem2 > form {
+  border: solid 2px black;
+  border-radius: 2rem;
+  padding: 5rem;
+}
+
+.LoginInConItem2 > form > h2, .RegisterConItem2 > form > h2 {
+  font-size: 4rem;
+}
+
+.LoginInConItem2 > form > button, .RegisterConItem2 > form > button {
+  font-size: 2rem;
+}
+
+.LoginInConItem2 > form > input[type="text"],
+.LoginInConItem2 > form > input[type="password"],
+.RegisterConItem2 > form > input[type="text"],
+.RegisterConItem2 > form > input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 2rem;
+}
+
+.errMessage {
+  font-size: 2rem;
+  color: red;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .LoginCon, .RegisterCon {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-template-areas:
+        'b'
+        'b'
+        'b';
+      height: auto;
+      padding: 20px;
+      margin-top: 100px;
+      margin-bottom: 100px;
   }
 
-
-  .LoginInConItem2>form ,.RegisterConItem2>form{
-    border: solid 2px black;
- border-radius: 2rem;
- padding: 5rem;
-}
-
-.LoginInConItem2>form>h2 ,.RegisterConItem2>form>h2{
-   
-font-size: 4rem;
-
+  /* Hide Sidebar on Mobile */
+  .LoginInConItem1, .LoginInConItem3 {
+      display: none;
   }
 
-  .LoginInConItem2>form>button,.RegisterConItem2>form>button {
-   
-    font-size: 2rem;
-      }
+  .LoginInConItem2, .RegisterConItem2 {
+      padding: 20px;
+      max-width: 100%;
+      width: 100%;
+  }
 
-  .LoginInConItem2>form>input[type="text"],.LoginInConItem2>form>input[type="password"],.RegisterConItem2>form>input[type="text"],.RegisterConItem2>form>input[type="password"] {
-    width: 100%;
+  .LoginInConItem2 > form, .RegisterConItem2 > form {
+      padding: 2rem;
+  }
+
+  .LoginInConItem2 > form > h2, .RegisterConItem2 > form > h2 {
+      font-size: 2.5rem;
+  }
+
+  .LoginInConItem2 > form > button, .RegisterConItem2 > form > button {
+      font-size: 1.5rem;
+  }
+
+  .LoginInConItem2 > form > input[type="text"],
+  .LoginInConItem2 > form > input[type="password"],
+  .RegisterConItem2 > form > input[type="text"],
+  .RegisterConItem2 > form > input[type="password"] {
+      font-size: 1.5rem;
+      padding: 8px;
+  }
+
+  .errMessage {
+      font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .LoginInConItem2 > form, .RegisterConItem2 > form {
+      padding: 1.5rem;
+  }
+
+  .LoginInConItem2 > form > h2, .RegisterConItem2 > form > h2 {
+      font-size: 2rem;
+  }
+
+  .LoginInConItem2 > form > button, .RegisterConItem2 > form > button {
+      font-size: 1.2rem;
+  }
+
+  .LoginInConItem2 > form > input[type="text"],
+  .LoginInConItem2 > form > input[type="password"],
+  .RegisterConItem2 > form > input[type="text"],
+  .RegisterConItem2 > form > input[type="password"] {
+      font-size: 1.2rem;
+      padding: 6px;
+  }
+
+  .errMessage {
+      font-size: 1.2rem;
+  }
+}
+/*---------------------------------------------------------------------------LoggedIn--------------------------------------------------------------------------*/
+/* User Account Page Specific Styles */
+.UserDashboard {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+.UserDashboard h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.UserDashboard p {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.UserDashboard .AccountDetails,
+.UserDashboard .UserProducts,
+.UserDashboard .PlanDetails {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.UserDashboard .AccountDetails h2,
+.UserDashboard .UserProducts h2,
+.UserDashboard .PlanDetails h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.UserDashboard .AccountDetails p,
+.UserDashboard .UserProducts p,
+.UserDashboard .PlanDetails p {
+  margin: 5px 0;
+}
+
+.UserDashboard .UserProducts ul {
+  padding-left: 15px;
+}
+
+.UserDashboard .UserProducts li {
+  margin-bottom: 5px;
+  list-style-type: disc;
+}
+
+.UserDashboard .btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.UserDashboard .btn:hover {
+  background-color: #218838;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .UserDashboard {
+    padding: 15px;
+    margin-top: 10px;
+  }
+
+  .UserDashboard h1 {
+    font-size: 1.8rem;
+  }
+
+  .UserDashboard .AccountDetails,
+  .UserDashboard .UserProducts,
+  .UserDashboard .PlanDetails {
     padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 2rem;
   }
 
-  .errMessage{
-    font-size: 2rem;
-    color: red;
+  .UserDashboard p,
+  .UserDashboard .AccountDetails p,
+  .UserDashboard .UserProducts p,
+  .UserDashboard .PlanDetails p {
+    font-size: 0.9rem;
   }
 
+  .UserDashboard .AccountDetails h2,
+  .UserDashboard .UserProducts h2,
+  .UserDashboard .PlanDetails h2 {
+    font-size: 1.2rem;
+  }
+
+  .UserDashboard .btn {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .UserDashboard h1 {
+    font-size: 1.5rem;
+  }
+
+  .UserDashboard .AccountDetails,
+  .UserDashboard .UserProducts,
+  .UserDashboard .PlanDetails {
+    padding: 8px;
+  }
+
+  .UserDashboard .AccountDetails h2,
+  .UserDashboard .UserProducts h2,
+  .UserDashboard .PlanDetails h2 {
+    font-size: 1rem;
+  }
+
+  .UserDashboard p {
+    font-size: 0.8rem;
+  }
+
+  .UserDashboard .btn {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}
 /*------------------------------------------------------------------------------------------- Mobile ---------------------------------------------------------------------*/
 
 /*------------------------------ Header ------------------------------*/
@@ -844,6 +1323,7 @@ font-size: 4rem;
 }}
 .footer{
     font-size: 0.5rem;
+ 
 }
 /*------------------------------  900px   ------------------------------*/
 @media(max-width:1400px){   

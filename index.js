@@ -16,21 +16,21 @@ const saltRounds = 15;
 const __dirname = dirname(fileURLToPath(import.meta.url));
 env.config();
 
- /*const db = new pg.Client({
+const db = new pg.Client({
     user: process.env.DBUSER,
     host:process.env.DBHOST,
     password: process.env.DBPASSWORD,
     database: process.env.DB,
     port: process.env.DBPORT
-});*/
+});
 
 
- const db = new pg.Client({
+  /*const db = new pg.Client({
     connectionString: process.env.DATABASE_URL,
     ssl: {
       rejectUnauthorized: false
     }
-  });
+  });*/
 
 app.set('view engine', 'ejs');
 
@@ -69,18 +69,19 @@ app.get("/register",(req,res)=>{
 //Login user
 app.get("/Login",(req,res)=>{
    if(req.isAuthenticated()){
-    res.render(__dirname+"/public/views/loggedIn.ejs")
+    res.render(__dirname+"/public/views/loggedIn.ejs", { user: userData })
    }
    else{
     res.render(__dirname+"/public/views/Login.ejs")
    }
   })
 
-  app.get("/loggedIn",(req,res)=>{
+  /app.get("/loggedIn",(req,res)=>{
     console.log(req.user);
     if(req.isAuthenticated()){
-        res.render(__dirname+"/public/views/loggedIn.ejs")
+        res.render(__dirname+"/public/views/loggedIn.ejs", { user: userData })
     }
+
     else{
         res.redirect("/login")
     }
@@ -91,6 +92,144 @@ app.get("/Login",(req,res)=>{
         failureRedirect: "/Login"
     }))
 
+    
+    /*LOGGED IN PAGE START*/
+    const userData = {
+        name: 'John Doe',
+        email: 'john.doe@example.com',
+        plan: 'Pro',
+        planDescription: 'You are on the Pro plan with advanced features and priority support.',
+        products: [
+          { name: 'Product 1', description: 'Description of product 1' },
+          { name: 'Product 2', description: 'Description of product 2' }
+        ]
+      };
+      
+          
+      // Route to serve the user dashboard
+      app.get('/loggedIn', (req, res) => {
+        // Pass user data to the EJS template for rendering
+        res.render('userDashboard', { user: userData });
+      });      
+    /*LOGGED IN PAGE END */ 
+
+
+/*BASKET*/
+
+// Display Cart Page
+app.get('/cart', (req, res) => {
+    const cartItems = req.session.cart || [];
+    const cartTotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    res.render(__dirname+'/public/views/cart', { cartItems, cartTotal });
+  });
+  
+  // Update Cart Item Quantity
+  app.post('/cart/update/:id', (req, res) => {
+    const itemId = req.params.id;
+    const newQuantity = parseInt(req.body.quantity, 10);
+  
+    // Update quantity in cart
+    req.session.cart = req.session.cart.map(item => {
+      if (item.id == itemId) {
+        item.quantity = newQuantity;
+      }
+      return item;
+    });
+  
+    res.redirect('/cart');
+
+  });
+  
+  // Remove Item from Cart
+  app.post('/cart/remove/:id', (req, res) => {
+    const itemId = req.params.id;
+  
+    // Remove item from cart
+    req.session.cart = req.session.cart.filter(item => item.id != itemId);
+    res.redirect('/cart');
+
+  });  
+/*BASKET END */  
+
+/*SHOP START*/
+// Add item to cart
+app.post('/cart/add', (req, res) => {
+    const { id, name, price } = req.body;
+  
+    // Initialize cart if not already done
+    if (!req.session.cart) {
+      req.session.cart = [];
+    }
+  
+    // Check if item is already in the cart
+    const existingItemIndex = req.session.cart.findIndex(item => item.id == id);
+  
+    if (existingItemIndex !== -1) {
+      // If item already exists, increment the quantity
+      req.session.cart[existingItemIndex].quantity += 1;
+    } else {
+      // Add new item to cart
+      req.session.cart.push({ id, name, price: parseFloat(price), quantity: 1 });
+    }
+  
+    // Redirect back to the shop page
+    res.redirect('/shop');
+  });
+  
+  // View Cart
+  app.get('/cart', (req, res) => {
+    const cart = req.session.cart || [];
+    const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  
+    res.render(__dirname+'/public/views/cart', { cartItems: cart, cartTotal });
+  });
+  
+  // Update Item Quantity in Cart
+  app.post('/cart/update/:id', (req, res) => {
+    const itemId = req.params.id;
+    const newQuantity = parseInt(req.body.quantity, 10);
+  
+    req.session.cart = req.session.cart.map(item => {
+      if (item.id == itemId && newQuantity > 0) {
+        item.quantity = newQuantity;
+      }
+      return item;
+    });
+  
+    res.redirect('/cart');
+  });
+  
+  // Remove Item from Cart
+  app.post('/cart/remove/:id', (req, res) => {
+    const itemId = req.params.id;
+  
+    req.session.cart = req.session.cart.filter(item => item.id != itemId);
+  
+    res.redirect('/cart');
+  });
+  
+  app.get('/shop', (req, res) => {
+    const cart = req.session.cart || [];
+  
+    // Calculate total items and total price
+    const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+    const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  
+    // Pass totalQuantity and cartTotal to the shop page
+    res.render(__dirname+'/public/views/shop', { cartTotal, totalQuantity });
+  });
+  
+/*SHOP END */
+
+/*CHECK OUT START*/
+app.get('/Checkout', (req, res) => {
+    // Clear the cart after a successful purchase
+    req.session.cart = [];
+    
+    // Render the checkout success page
+    res.render(__dirname+"/public/views/checkout");
+  });
+  /*CHECK OUT END*/
 
 
 
@@ -106,11 +245,6 @@ app.get("/pricing",(req,res)=>{
 app.get("/Customers",(req,res)=>{
     res.render(__dirname+"/public/views/Customers.ejs")
 })
-
-app.get("/Cart",(req,res)=>{
-    res.render(__dirname+"/public/views/Cart.ejs")
-})
-
 
 app.get("/Shop",(req,res)=>{
     res.render(__dirname+"/public/views/Shop.ejs",{CartTotal: cartTotal})
