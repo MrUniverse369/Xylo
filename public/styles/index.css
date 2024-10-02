@@ -1253,7 +1253,7 @@ margin-right: 1rem;
 .UserDashboard .btn {
   display: inline-block;
   padding: 10px 15px;
-  background-color: #28a745;
+  background-color: #000000;
   color: white;
   border-radius: 5px;
   text-decoration: none;
@@ -1262,7 +1262,7 @@ margin-right: 1rem;
 }
 
 .UserDashboard .btn:hover {
-  background-color: #218838;
+  background-color: #430e99;
 }
 
 /* Responsive Design for Mobile */

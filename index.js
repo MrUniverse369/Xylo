@@ -95,8 +95,8 @@ app.get("/Login",(req,res)=>{
     
     /*LOGGED IN PAGE START*/
     const userData = {
-        name: 'John Doe',
-        email: 'john.doe@example.com',
+        name: 'Xylo ',
+        email: 'xyloDemo@xylo.com',
         plan: 'Pro',
         planDescription: 'You are on the Pro plan with advanced features and priority support.',
         products: [
