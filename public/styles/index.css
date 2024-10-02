@@ -488,6 +488,20 @@ margin-right: 1rem;
 
   /*------------------------------------------------------------Shop-------------------------------------------------------------*/
 
+  .shopping-cart-summary{
+    background-color: #470f91;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 30px;
+    color: whitesmoke;
+    border: solid black 2px;
+
+  }
+  .shopping-cart-summary > form > button{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  }
   .shop-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 items per row on larger screens */
@@ -558,7 +572,6 @@ margin-right: 1rem;
     color: #000000;
   }
   .cart-form{
-    background-color: #5311a2;
     margin-bottom: 0px;
   }
   .cart-total {
@@ -626,7 +639,7 @@ margin-right: 1rem;
 .btn-checkout,
 .btn-continue-shopping {
   padding: 10px 15px;
-  background-color: #007bff;
+  background-color: black;
   color: white;
   border: none;
   cursor: pointer;
@@ -637,15 +650,15 @@ margin-right: 1rem;
 .btn-remove:hover,
 .btn-checkout:hover,
 .btn-continue-shopping:hover {
-  background-color: #0056b3;
+  background-color:#5311a2;
 }
 
 .btn-remove {
-  background-color: #ff4c4c;
+  background-color:black;
 }
 
 .btn-remove:hover {
-  background-color: #cc0000;
+  background-color: #5311a2;
 }
 
 /* Cart Summary */
