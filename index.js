@@ -16,21 +16,21 @@ const saltRounds = 15;
 const __dirname = dirname(fileURLToPath(import.meta.url));
 env.config();
 
-/*const db = new pg.Client({
+const db = new pg.Client({
     user: process.env.DBUSER,
     host:process.env.DBHOST,
     password: process.env.DBPASSWORD,
     database: process.env.DB,
     port: process.env.DBPORT
-});*/
+});
 
 
-  const db = new pg.Client({
+  /*const db = new pg.Client({
     connectionString: process.env.DATABASE_URL,
     ssl: {
       rejectUnauthorized: false
     }
-  });
+  });*/
 
 app.set('view engine', 'ejs');
 
@@ -76,7 +76,9 @@ app.get("/Login",(req,res)=>{
    }
   })
 
-  /app.get("/loggedIn",(req,res)=>{
+
+  /*Display user Account Page if Authetication is succsefull otherwise redirect to login page*/
+  app.get("/loggedIn",(req,res)=>{
     console.log(req.user);
     if(req.isAuthenticated()){
         res.render(__dirname+"/public/views/loggedIn.ejs", { user: userData })
@@ -87,6 +89,7 @@ app.get("/Login",(req,res)=>{
     }
     })
 
+/*Display user Account Page if Authetication is succsefull otherwise redirect to login page*/
     app.post("/login",passport.authenticate("local",{
         successRedirect: "/loggedIn",
         failureRedirect: "/Login"
@@ -104,12 +107,24 @@ app.get("/Login",(req,res)=>{
           { name: 'Product 2', description: 'Description of product 2' }
         ]
       };
-      
+    
+  
           
       // Route to serve the user dashboard
-      app.get('/loggedIn', (req, res) => {
+      app.get('/loggedIn', async (req, res) => {
+
+        try {
+           /*Retrieve customer information from database*/
+           if(req.isAuthenticated()){
+
+
+           }
         // Pass user data to the EJS template for rendering
         res.render('userDashboard', { user: userData });
+    }
+        catch (error) {
+            console.log(error.message)
+        }
       });      
     /*LOGGED IN PAGE END */ 
 
@@ -325,26 +340,6 @@ let cartTotal = 0;
 app.post("/basket",(req,res)=>{
 const productId = parseInt(req.body['id'])
 let cartItem = ShoppingCart.find(item => item.id === productId)
-
-if(cartItem.name === 'TransactPro'){
-cartTotal += 50;
-}
-if(cartItem.name === 'SwipeEase'){
-cartTotal += 150;
-}
-if(cartItem.name === 'SelfServePro'){
-    cartTotal += 250;
-}
-
-if(cartItem.name === 'selfServe Pro2'){
-    cartTotal += 250;
-}
-if(cartItem.name === 'selfServe Pro3'){
-    cartTotal += 150;
-}
-if(cartItem.name === 'selfServe Pro4'){
-    cartTotal += 350;
-}
 console.log("The product Id is "+productId)
 console.log("The cart item is "+cartItem.name)
 res.redirect("/Shop");
