@@ -38,7 +38,7 @@
         <img src="<%= product.image %>" alt="<%= product.name %>" />
         <h2><%= product.name %></h2>
         <h3>£<%= product.price %></h3>
-        <form action="/cart/add" method="POST" class="add-to-cart-form">
+        <form action="/Cart/add" method="POST" class="add-to-cart-form">
           <input type="hidden" name="id" value="<%= product.id %>" />
           <input type="hidden" name="name" value="<%= product.name %>" />
           <input type="hidden" name="price" value="<%= product.price %>" />
