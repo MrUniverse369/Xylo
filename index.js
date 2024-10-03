@@ -242,7 +242,7 @@ app.get('/Checkout', (req, res) => {
     req.session.cart = [];
     
     // Render the checkout success page
-    res.render(__dirname+"/public/views/checkout");
+    res.render(__dirname+"/public/views/Checkout");
   });
   /*CHECK OUT END*/
 
