@@ -132,14 +132,14 @@ app.get("/Login",(req,res)=>{
 /*BASKET*/
 
 // Display Cart Page
-app.get('/cart', (req, res) => {
+app.get('/Cart', (req, res) => {
     const cartItems = req.session.cart || [];
     const cartTotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
     res.render(__dirname+'/public/views/cart', { cartItems, cartTotal });
   });
   
   // Update Cart Item Quantity
-  app.post('/cart/update/:id', (req, res) => {
+  app.post('/Cart/update/:id', (req, res) => {
     const itemId = req.params.id;
     const newQuantity = parseInt(req.body.quantity, 10);
   
@@ -161,14 +161,14 @@ app.get('/cart', (req, res) => {
   
     // Remove item from cart
     req.session.cart = req.session.cart.filter(item => item.id != itemId);
-    res.redirect('/cart');
+    res.redirect('/Cart');
 
   });  
 /*BASKET END */  
 
 /*SHOP START*/
 // Add item to cart
-app.post('/cart/add', (req, res) => {
+app.post('/Cart/add', (req, res) => {
     const { id, name, price } = req.body;
   
     // Initialize cart if not already done
@@ -192,11 +192,11 @@ app.post('/cart/add', (req, res) => {
   });
   
   // View Cart
-  app.get('/cart', (req, res) => {
+  app.get('/Cart', (req, res) => {
     const cart = req.session.cart || [];
     const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
   
-    res.render(__dirname+'/public/views/cart', { cartItems: cart, cartTotal });
+    res.render(__dirname+'/public/views/Cart', { cartItems: cart, cartTotal });
   });
   
   // Update Item Quantity in Cart
@@ -211,16 +211,16 @@ app.post('/cart/add', (req, res) => {
       return item;
     });
   
-    res.redirect('/cart');
+    res.redirect('/Cart');
   });
   
   // Remove Item from Cart
-  app.post('/cart/remove/:id', (req, res) => {
+  app.post('/Cart/remove/:id', (req, res) => {
     const itemId = req.params.id;
   
     req.session.cart = req.session.cart.filter(item => item.id != itemId);
   
-    res.redirect('/cart');
+    res.redirect('/Cart');
   });
   
   app.get('/Shop', (req, res) => {
