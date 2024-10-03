@@ -135,7 +135,7 @@ app.get("/Login",(req,res)=>{
 app.get('/Cart', (req, res) => {
     const cartItems = req.session.cart || [];
     const cartTotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-    res.render(__dirname+'/public/views/cart', { cartItems, cartTotal });
+    res.render(__dirname+'/public/views/Cart', { cartItems, cartTotal });
   });
   
   // Update Cart Item Quantity
@@ -151,12 +151,12 @@ app.get('/Cart', (req, res) => {
       return item;
     });
   
-    res.redirect('/cart');
+    res.redirect('/Cart');
 
   });
   
   // Remove Item from Cart
-  app.post('/cart/remove/:id', (req, res) => {
+  app.post('/Cart/remove/:id', (req, res) => {
     const itemId = req.params.id;
   
     // Remove item from cart

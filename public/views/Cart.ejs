@@ -38,7 +38,7 @@
               </div>
             </td>
             <td>
-              <form action="/cart/update/<%= item.id %>" method="POST">
+              <form action="/Cart/update/<%= item.id %>" method="POST">
                 <input
                   type="number"
                   name="quantity"
@@ -53,7 +53,7 @@
             <td>£<%= item.price %></td>
             <td>£<%= (item.price * item.quantity).toFixed(2) %></td>
             <td>
-              <form action="/cart/remove/<%= item.id %>" method="POST">
+              <form action="/Cart/remove/<%= item.id %>" method="POST">
                 <button type="submit" class="btn-remove">Remove</button>
               </form>
             </td>
@@ -73,7 +73,7 @@
       </div>
       <% } else { %>
       <p class="empty-message">Your cart is currently empty.</p>
-      <a href="/shop" class="btn-continue-shopping">Continue Shopping</a>
+      <a href="/Shop" class="btn-continue-shopping">Continue Shopping</a>
       <% } %>
     </div>
 
