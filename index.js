@@ -16,21 +16,21 @@ const saltRounds = 15;
 const __dirname = dirname(fileURLToPath(import.meta.url));
 env.config();
 
-const db = new pg.Client({
+/*const db = new pg.Client({
     user: process.env.DBUSER,
     host:process.env.DBHOST,
     password: process.env.DBPASSWORD,
     database: process.env.DB,
     port: process.env.DBPORT
-});
+});*/
 
 
-  /*const db = new pg.Client({
+  const db = new pg.Client({
     connectionString: process.env.DATABASE_URL,
     ssl: {
       rejectUnauthorized: false
     }
-  });*/
+  });
 
 app.set('view engine', 'ejs');
 
@@ -188,7 +188,7 @@ app.post('/cart/add', (req, res) => {
     }
   
     // Redirect back to the shop page
-    res.redirect('/shop');
+    res.redirect('/Shop');
   });
   
   // View Cart
@@ -223,7 +223,7 @@ app.post('/cart/add', (req, res) => {
     res.redirect('/cart');
   });
   
-  app.get('/shop', (req, res) => {
+  app.get('/Shop', (req, res) => {
     const cart = req.session.cart || [];
   
     // Calculate total items and total price
@@ -231,7 +231,7 @@ app.post('/cart/add', (req, res) => {
     const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
   
     // Pass totalQuantity and cartTotal to the shop page
-    res.render(__dirname+'/public/views/shop', { cartTotal, totalQuantity });
+    res.render(__dirname+'/public/views/Shop', { cartTotal, totalQuantity });
   });
   
 /*SHOP END */
