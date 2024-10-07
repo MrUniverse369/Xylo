@@ -16,21 +16,22 @@ const saltRounds = 15;
 const __dirname = dirname(fileURLToPath(import.meta.url));
 env.config();
 
-/*const db = new pg.Client({
+//local host connection setup
+const db = new pg.Client({
     user: process.env.DBUSER,
     host:process.env.DBHOST,
     password: process.env.DBPASSWORD,
     database: process.env.DB,
     port: process.env.DBPORT
-});*/
+});
 
-
-  const db = new pg.Client({
+//Server connection setup
+  /*const db = new pg.Client({
     connectionString: process.env.DATABASE_URL,
     ssl: {
       rejectUnauthorized: false
     }
-  });
+  });*/
 
 app.set('view engine', 'ejs');
 
@@ -97,6 +98,7 @@ app.get("/Login",(req,res)=>{
 
     
     /*LOGGED IN PAGE START*/
+    //place holder until db creation and connection 
     const userData = {
         name: 'Xylo ',
         email: 'xyloDemo@xylo.com',

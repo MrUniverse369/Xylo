@@ -25,15 +25,15 @@
 
     <!-- Shop Container -->
     <div class="shop-container">
-      <% const products = [ { id: 0, name: "TransactPro", price: 39, image:
-      "/img/ProductPos_1.webp" }, { id: 1, name: "SwipeEase", price: 39, image:
-      "/img/ProductCardReader_2.webp" }, { id: 2, name: "SelfServePro", price:
-      39, image: "/img/ProductSelfService_3.webp" }, { id: 3, name:
-      "SelfServePro", price: 39, image: "/img/ProductSelfService_3.webp" }, {
-      id: 4, name: "SelfServePro5000", price: 39, image:
-      "/img/ProductSelfService_3.webp" }, { id: 5, name: "SelfServePro", price:
-      39, image: "/img/ProductSelfService_3.webp" } ]; %> <%
-      products.forEach(product => { %>
+      <% const products = [ { id: 0, name: "TransactPro", price: 45, image:
+      "/img/ProductPos_1.webp" }, { id: 1, name: "SwipeEase", price: 50, image:
+      "/img/ProductCardReader_2.webp" }, { id: 2, name: "SelfServe", price: 799,
+      image: "/img/ProductSelfService_3.webp" }, { id: 3, name: "SelfServePro",
+      price: 850, image: "/img/ProductSelfService_3.webp" }, { id: 4, name:
+      "SelfServePro5000", price: 999, image: "/img/ProductSelfService_3.webp" },
+      { id: 5, name: "SelfServePro", price: 39, image:
+      "/img/ProductSelfService_3.webp" } ]; %> <% products.forEach(product => {
+      %>
       <div class="shop-item">
         <img src="<%= product.image %>" alt="<%= product.name %>" />
         <h2><%= product.name %></h2>
