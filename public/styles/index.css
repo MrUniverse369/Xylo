@@ -1031,7 +1031,8 @@ margin-right: 1rem;
     }
 
     .Item1, .Item3, .Item5 {
-        padding: 1rem;
+        padding: 10px;
+       
     }
 
     .Item1 > h1, .Item5 > h2 {
@@ -1055,6 +1056,7 @@ margin-right: 1rem;
     }
    
 }
+
 
 
 /*------------------------------ LogIn page form ------------------------------*/
@@ -1487,19 +1489,7 @@ margin: 1rem;
 
 
 
-/*------------------------------ ContactSales Form Mobile ------------------------------*/
-p{
-    font-size: 1rem;
-    }
-    h2{
-        font-size: 1rem;
-    }
-    
-    .ProductsItem2{grid-area: 1/1/2/7;}
-    
-    .ProductsItem4{grid-area: 3/1/5/4;}
-    
-    .ProductsItem6{grid-area: 5/4/7/7;}
+
 }
   
       
