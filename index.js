@@ -17,21 +17,21 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 env.config();
 
 //local host connection setup
- /* const db = new pg.Client({
+ const db = new pg.Client({
     user: process.env.DBUSER,
     host:process.env.DBHOST,
     password: process.env.DBPASSWORD,
     database: process.env.DB,
     port: process.env.DBPORT
-});*/
+});
 
 //Server connection setup
-const db = new pg.Client({
+/*const db = new pg.Client({
     connectionString: process.env.DATABASE_URL,
     ssl: {
       rejectUnauthorized: false
     }
-  });
+  }); */
 
 app.set('view engine', 'ejs');
 
@@ -51,8 +51,12 @@ try {
     process.exit(1); 
   }
 
-  
+;
+
+
+//app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.json());
 app.use(express.static("public"))
 app.use(passport.initialize());
 app.use(passport.session());
@@ -68,8 +72,11 @@ app.get("/register",(req,res)=>{
 })
 
 //Login user
-app.get("/Login",(req,res)=>{
+app.get("/Login", async (req,res)=>{
    if(req.isAuthenticated()){
+    const email = req.body["username"];
+    console.log("username"+req.body["username"])
+    const userData = await db.query("SELECT * FROM customers WHERE email = $1",[email])
     res.render(__dirname+"/public/views/loggedIn.ejs", { user: userData })
    }
    else{
@@ -79,10 +86,14 @@ app.get("/Login",(req,res)=>{
 
 
   /*Display user Account Page if Authetication is succsefull otherwise redirect to login page*/
-  app.get("/loggedIn",(req,res)=>{
-    console.log(req.user);
+  app.get("/loggedIn",async (req,res)=>{
+    const email = req.user.email;
+    console.log(" emailUSER "+req.user.email)
+
+    const userData = await db.query("SELECT * FROM customers WHERE email = $1",[email])
+    console.log(userData.rows[0]);
     if(req.isAuthenticated()){
-        res.render(__dirname+"/public/views/loggedIn.ejs", { user: userData })
+        res.render(__dirname+"/public/views/loggedIn.ejs", { user: userData.rows[0] })
     }
 
     else{
@@ -91,15 +102,33 @@ app.get("/Login",(req,res)=>{
     })
 
 /*Display user Account Page if Authetication is succsefull otherwise redirect to login page*/
-    app.post("/login",passport.authenticate("local",{
-        successRedirect: "/loggedIn",
-        failureRedirect: "/Login"
-    }))
+app.post("/login", (req, res, next) => {
+  const email = req.body["username"]; 
+  console.log("Email from login form: " + email); 
+
+  // Call the Passport authentication middleware
+  passport.authenticate("local", (err, user, info) => {
+      if (err) {
+          return next(err); //  authentication error handling 
+      }
+      if (!user) {
+          return res.redirect("/Login"); // Redirect if authentication fails
+      }
+      
+      req.logIn(user, (err) => { // Log in the user
+          if (err) {
+              return next(err); // Handle any login error
+          }
+          return res.redirect("/loggedIn"); // Redirect to loggedIn if successful
+      });
+  })(req, res, next);
+});
+
 
     
     /*LOGGED IN PAGE START*/
     //place holder until db creation and connection 
-    const userData = {
+    /*const userData = {
         name: 'Xylo ',
         email: 'xyloDemo@xylo.com',
         plan: 'Pro',
@@ -108,26 +137,25 @@ app.get("/Login",(req,res)=>{
           { name: 'Product 1', description: 'Description of product 1' },
           { name: 'Product 2', description: 'Description of product 2' }
         ]
-      };
+      };*/
     
   
           
       // Route to serve the user dashboard
-      app.get('/loggedIn', async (req, res) => {
-
-        try {
-           /*Retrieve customer information from database*/
+     /* app.get('/loggedIn', async (req, res) => {
+        const email = req.user['username'];
+        console.log("emailUSER"+email)
+        const userData = await db.query("SELECT * FROM customers WHERE email = $1",[email])
+console.log("LOGG"+userData.rows[0])
+           /*Retrieve customer information from database*
            if(req.isAuthenticated()){
 
 
            }
         // Pass user data to the EJS template for rendering
         res.render('userDashboard', { user: userData });
-    }
-        catch (error) {
-            console.log(error.message)
-        }
-      });      
+    
+      }); */
     /*LOGGED IN PAGE END */ 
 
 
@@ -350,11 +378,11 @@ res.redirect("/Shop");
 
 
 passport.use(new Strategy ( async function verify(username, password, cb){
-    console.log("PassPort middleware running2")
+    
     try {
        
-        console.log(username);
-        console.log(password);
+       // console.log(username);
+       // console.log(password);
 
       const queryResult  =  await db.query("SELECT * FROM customers WHERE email = $1",[username])
 
@@ -367,9 +395,9 @@ passport.use(new Strategy ( async function verify(username, password, cb){
             return cb(error)
         }
           else{
-            if(isPassCorrect) {console.log("Password match Login successful")
-            console.log(password);
-            console.log(dbpassword )
+            if(isPassCorrect) {//console.log("Password match Login successful")
+           // console.log(password);
+          //  console.log(dbpassword )
             return cb(null,customer)
            }
             else{
