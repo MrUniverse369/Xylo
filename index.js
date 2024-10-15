@@ -77,7 +77,7 @@ app.get("/Login", async (req,res)=>{
     const email = req.body["username"];
     console.log("username"+req.body["username"])
     const userData = await db.query("SELECT * FROM customers WHERE email = $1",[email])
-    res.render(__dirname+"/public/views/loggedIn.ejs", { user: userData })
+    res.render(__dirname+"/public/views/loggedIn.ejs", { user: userData.rows[0] })
    }
    else{
     res.render(__dirname+"/public/views/Login.ejs")
