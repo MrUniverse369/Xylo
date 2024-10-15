@@ -86,20 +86,38 @@ app.get("/Login", async (req,res)=>{
 
 
   /*Display user Account Page if Authetication is succsefull otherwise redirect to login page*/
-  app.get("/loggedIn",async (req,res)=>{
-    const email = req.user.email;
-    console.log(" emailUSER "+req.user.email)
+// Helper function to handle authenticated user data fetching and rendering
+async function renderLoggedInPage(req, res) {
+  if (req.isAuthenticated()) {
+      try {
+          const email = req.user.email;
+          const userData = await db.query("SELECT * FROM customers WHERE email = $1", [email]);
 
-    const userData = await db.query("SELECT * FROM customers WHERE email = $1",[email])
-    console.log(userData.rows[0]);
-    if(req.isAuthenticated()){
-        res.render(__dirname+"/public/views/loggedIn.ejs", { user: userData.rows[0] })
-    }
+          if (userData.rows.length > 0) {
+              // Send user data to the loggedIn page
+              res.render(__dirname + "/public/views/loggedIn.ejs", { user: userData.rows[0] });
+          } else {
+              // Handle case where no user is found
+              res.redirect("/login");
+          }
+      } catch (error) {
+          console.error("Database query error:", error);
+          res.status(500).send("Internal server error");
+      }
+  } else {
+      res.redirect("/login");
+  }
+}
 
-    else{
-        res.redirect("/login")
-    }
-    })
+// GET route for loggedIn page
+app.get("/loggedIn", async (req, res) => {
+  await renderLoggedInPage(req, res);
+});
+
+// POST route for loggedIn page (if needed)
+app.post("/loggedIn", async (req, res) => {
+  await renderLoggedInPage(req, res);
+});
 
 /*Display user Account Page if Authetication is succsefull otherwise redirect to login page*/
 app.post("/login", (req, res, next) => {
