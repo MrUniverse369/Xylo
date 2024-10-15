@@ -21,20 +21,6 @@
           <p><strong>Plan:</strong> <%= user.plan %></p>
         </div>
 
-        <!-- Products Owned -->
-        <div class="UserProducts">
-          <h2>Your Products</h2>
-          <% if (user.products && user.products.length > 0) { %>
-          <ul>
-            <% user.products.forEach(function(product) { %>
-            <li><%= product.name %> - <%= product.description %></li>
-            <% }); %>
-          </ul>
-          <% } else { %>
-          <p>You don't own any products yet.</p>
-          <% } %>
-        </div>
-
         <!-- Plan Details and Upgrade Option -->
         <div class="PlanDetails">
           <h2>Current Plan: <%= user.plan %></h2>
