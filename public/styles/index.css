@@ -458,10 +458,33 @@
     transform: translateY(-3px);
   }
   
-  .Products_1 > div > img {
-    width: 72px;
-    height: 72px;
-    object-fit: contain;
+  /* Circular icon — consistent with shop and products pages */
+  .Products_1__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: var(--off-white);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--purple-mid);
+    transition: background-color var(--transition),
+                border-color var(--transition),
+                color var(--transition),
+                transform var(--transition);
+    flex-shrink: 0;
+  }
+  
+  .Products_1 > div:hover .Products_1__icon {
+    background-color: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.25);
+    color: var(--white);
+  }
+  
+  .Products_1__icon > svg {
+    width: 28px;
+    height: 28px;
   }
   
   .Products_1 > div > h2 {
@@ -773,23 +796,47 @@
     text-align: center;
     color: var(--white);
     padding: 0 40px;
-    border-right: 1px solid rgba(255,255,255,1.0);
+    border-right: 1px solid rgba(255,255,255,0.1);
     flex: 1;
     max-width: 320px;
+    transition: opacity var(--transition);
+  }
+  
+  .PricingItem2 > div:hover {
+    opacity: 0.95;
   }
   
   .PricingItem2 > div:last-child {
     border-right: none;
   }
   
-  .PricingItem2 > div > img {
+  /* Circular icon — consistent system, adapted for dark background */
+  .PricingItem2__icon {
     width: 64px;
     height: 64px;
-    object-fit: contain;
     border-radius: 50%;
-    background-color: rgba(255,255,255,1.0);
-    padding: 12px;
+    background-color: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
     margin-bottom: 20px;
+    flex-shrink: 0;
+    transition: background-color var(--transition),
+                border-color var(--transition),
+                transform var(--transition);
+  }
+  
+  .PricingItem2 > div:hover .PricingItem2__icon {
+    background-color: var(--purple-mid);
+    border-color: var(--purple-mid);
+    transform: translateY(-3px);
+  }
+  
+  .PricingItem2__icon > svg {
+    width: 28px;
+    height: 28px;
   }
   
   .PricingItem2 > div > h3 {
@@ -1768,5 +1815,189 @@
   
     .PricingItem1 > p {
       font-size: 0.95rem;
+    }
+  }
+  
+  /* ============================================================
+     CONTACT SALES — SUCCESS PAGE
+     ============================================================ */
+  
+  .SalesSuccess {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Hero band */
+  .SalesSuccess__hero {
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 72px 40px 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  /* Large checkmark circle */
+  .SalesSuccess__icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(83, 17, 162, 0.25);
+    border: 1px solid rgba(83, 17, 162, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--purple-light);
+    margin-bottom: 8px;
+  }
+  
+  .SalesSuccess__icon > svg {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .SalesSuccess__hero > h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  
+  .SalesSuccess__hero > p {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 480px;
+    line-height: 1.75;
+  }
+  
+  /* What happens next section */
+  .SalesSuccess__steps {
+    background-color: var(--white);
+    padding: 64px 80px;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .SalesSuccess__steps > h2 {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .SalesSuccess__stepGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  
+  /* Individual step row */
+  .SalesSuccess__step {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .SalesSuccess__step:last-child {
+    border-bottom: none;
+  }
+  
+  /* Step icon — circular, matching site system */
+  .SalesSuccess__stepIcon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: var(--off-white);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--purple-mid);
+    flex-shrink: 0;
+    transition: background-color var(--transition),
+                border-color var(--transition),
+                color var(--transition);
+  }
+  
+  .SalesSuccess__step:hover .SalesSuccess__stepIcon {
+    background-color: var(--purple-dark);
+    border-color: var(--purple-dark);
+    color: var(--white);
+  }
+  
+  .SalesSuccess__stepIcon > svg {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .SalesSuccess__stepText > h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+    color: var(--text-dark);
+  }
+  
+  .SalesSuccess__stepText > p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  
+  /* CTA footer band */
+  .SalesSuccess__cta {
+    background-color: var(--off-white);
+    text-align: center;
+    padding: 56px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .SalesSuccess__cta > p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 400px;
+    line-height: 1.6;
+  }
+  
+  .SalesSuccess__ctaButtons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .SalesSuccess__steps {
+      padding: 40px 24px;
+    }
+  
+    .SalesSuccess__hero {
+      padding: 48px 24px 40px;
+    }
+  
+    .SalesSuccess__step {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+    }
+  
+    .SalesSuccess__ctaButtons {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .SalesSuccess__ctaButtons > .btn {
+      width: 100%;
+      justify-content: center;
     }
   }

@@ -8,6 +8,8 @@
   <body>
     <%- include('header.ejs') %>
     <div class="PricingCon">
+
+      <!-- Hero -->
       <div class="PricingItem1">
         <h2 class="TitleCenter">Pay as you grow</h2>
         <img src="/img/Pricing_4.jpg" />
@@ -16,9 +18,18 @@
           readers, and business devices – tailored to fit your needs.
         </p>
       </div>
+
+      <!-- Feature strip — SVG icons replacing Pricing_1/2/3.png -->
       <div class="PricingItem2">
+
         <div>
-          <img src="/img/Pricing_3.png" />
+          <div class="PricingItem2__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/>
+              <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+            </svg>
+          </div>
           <h3>Customer support</h3>
           <p>
             Benefit from exceptional customer support through our third-party
@@ -27,9 +38,15 @@
             devices, saving you time and hassle.
           </p>
         </div>
+
         <div>
-          <img src="/img/Pricing_1.png" />
-          <h3>Save time & money</h3>
+          <div class="PricingItem2__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Save time &amp; money</h3>
           <p>
             Save time and money by relying on our trusted third-party vendor for
             premium POS systems, card readers, and business devices, all
@@ -39,7 +56,12 @@
         </div>
 
         <div>
-          <img src="/img/Pricing_2.png" />
+          <div class="PricingItem2__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+              <polyline points="17 6 23 6 23 12"/>
+            </svg>
+          </div>
           <h3>Pay-as-you-grow</h3>
           <p>
             Pay-as-you-grow, enjoy flexible access to extra features and
@@ -48,10 +70,14 @@
             what you need as your business expands.
           </p>
         </div>
+
       </div>
+
+      <!-- Pricing cards -->
       <div class="PricingItem3">
         <h2 class="TitleCenter">Our Pricing</h2>
         <div>
+
           <div class="RateCard">
             <h3>Starter</h3>
             <p>
@@ -63,11 +89,11 @@
               <li>Basic Transaction Fees: 2.9% + £0.30 per transaction</li>
               <li>Limited Support for 1 Software</li>
               <li>Basic Customer Support</li>
-              <li>Basic Reporting & Analytics</li>
+              <li>Basic Reporting &amp; Analytics</li>
               <li>Limited Customization Options for POS interface</li>
               <li>1 User Access (Owner/Admin)</li>
               <li>Inventory Management</li>
-              <li>Email Invoicing & Receipts</li>
+              <li>Email Invoicing &amp; Receipts</li>
               <li>Mobile App Integration</li>
             </ul>
             <h4>£49.00</h4>
@@ -86,7 +112,7 @@
               <li>Reduced Transaction Fees</li>
               <li>Software Support for 3 Platforms</li>
               <li>Priority Customer Support</li>
-              <li>Advanced Reporting & Analytics</li>
+              <li>Advanced Reporting &amp; Analytics</li>
               <li>Moderate Customization Options</li>
               <li>5 User Accesses</li>
               <li>Loyalty Program Integration</li>
@@ -97,20 +123,19 @@
           </div>
 
           <div class="RateCard">
-            <h3>Unlimted</h3>
+            <h3>Unlimited</h3>
             <p>
-              Premium option for large enterprises or Smb needing unlimited
-              access and full customization.
+              Premium option for large enterprises or SMBs needing unlimited
+              access and full customisation.
             </p>
-
             <ul>
               <li>Every benefit included in the Starter and Pro Plan</li>
               <li>Unlimited Transactions</li>
               <li>Lowest Transaction Fees</li>
               <li>Full Software Suite Support</li>
               <li>Dedicated Customer Success Manager</li>
-              <li>Full Customization of Software and Hardware</li>
-              <li>Advanced Security & Compliance</li>
+              <li>Full Customisation of Software and Hardware</li>
+              <li>Advanced Security &amp; Compliance</li>
               <li>Unlimited User Access</li>
               <li>Full Reporting Suite</li>
               <li>No Add-on Fees</li>
@@ -118,8 +143,10 @@
             <h4>£99.00</h4>
             <a class="btn" href="/ContactSales">Contact Sales</a>
           </div>
+
         </div>
       </div>
+
     </div>
     <%- include('footer.ejs') %>
   </body>

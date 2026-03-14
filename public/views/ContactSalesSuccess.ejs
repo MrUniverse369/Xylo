@@ -1,0 +1,85 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>We'll be in touch — XYLO</title>
+  </head>
+  <body>
+    <%- include('header.ejs') %>
+
+    <div class="SalesSuccess">
+
+      <!-- Top black hero band -->
+      <div class="SalesSuccess__hero">
+        <div class="SalesSuccess__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
+        <h1>We've received your enquiry</h1>
+        <p>Thank you for reaching out. A member of our sales team will call you within the hour (Mon–Fri).</p>
+      </div>
+
+      <!-- What happens next -->
+      <div class="SalesSuccess__steps">
+        <h2>What happens next?</h2>
+        <div class="SalesSuccess__stepGrid">
+
+          <div class="SalesSuccess__step">
+            <div class="SalesSuccess__stepIcon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.18 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <div class="SalesSuccess__stepText">
+              <h3>We'll give you a call</h3>
+              <p>One of our experts will contact you within the hour on the number you provided.</p>
+            </div>
+          </div>
+
+          <div class="SalesSuccess__step">
+            <div class="SalesSuccess__stepIcon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </div>
+            <div class="SalesSuccess__stepText">
+              <h3>We'll assess your needs</h3>
+              <p>Our team will walk through your business requirements and recommend the right plan and hardware.</p>
+            </div>
+          </div>
+
+          <div class="SalesSuccess__step">
+            <div class="SalesSuccess__stepIcon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                <polyline points="17 6 23 6 23 12"/>
+              </svg>
+            </div>
+            <div class="SalesSuccess__stepText">
+              <h3>You start growing</h3>
+              <p>Once set up, you'll have everything you need to take payments and run your business seamlessly.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CTA footer band -->
+      <div class="SalesSuccess__cta">
+        <p>While you wait, feel free to explore our products and pricing.</p>
+        <div class="SalesSuccess__ctaButtons">
+          <a class="btn" href="/">Back to Home</a>
+          <a class="btn" href="/Pricing">View Pricing</a>
+          <a class="btn" href="/Shop">Shop Hardware</a>
+        </div>
+      </div>
+
+    </div>
+
+    <%- include('footer.ejs') %>
+  </body>
+</html>
