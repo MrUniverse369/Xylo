@@ -8,42 +8,123 @@
   <body>
     <%- include('header.ejs') %>
 
-    <!-- Cart Summary at the top of the shop page -->
-    <div class="shopping-cart-summary">
-      <h2>Cart Summary</h2>
-      <p>Total Items: <%= locals.totalQuantity %></p>
-      <p>Total Price: £<%= cartTotal.toFixed(2) %></p>
-      <form action="/Cart" method="GET" class="cart-form">
-        <button type="submit" class="btn-cart">Go to Cart</button>
-      </form>
+    <%
+      const products = [
+        {
+          id: 0,
+          name: "TransactPro",
+          price: 45,
+          category: "Point of Sale",
+          description: "A compact all-in-one POS terminal for fast, reliable counter-top transactions.",
+          icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="13" rx="2"/>
+            <path d="M8 21h8M12 17v4"/>
+            <path d="M7 8h2M11 8h6M7 11h4M13 11h4"/>
+          </svg>`
+        },
+        {
+          id: 1,
+          name: "SwipeEase",
+          price: 50,
+          category: "Card Reader",
+          description: "Portable card reader supporting contactless, chip and swipe payments on the go.",
+          icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="6" width="18" height="13" rx="2"/>
+            <path d="M3 10h18"/>
+            <path d="M7 15h4M15 15h2"/>
+          </svg>`
+        },
+        {
+          id: 2,
+          name: "SelfServe",
+          price: 799,
+          category: "Self-Service Kiosk",
+          description: "Entry-level self-service kiosk with a 15″ touchscreen, ideal for smaller venues.",
+          icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="7" y="2" width="10" height="16" rx="2"/>
+            <path d="M10 22h4M12 18v4"/>
+            <path d="M10 6h4M10 9h4M10 12h2"/>
+          </svg>`
+        },
+        {
+          id: 3,
+          name: "SelfServePro",
+          price: 850,
+          category: "Self-Service Kiosk",
+          description: "Mid-range kiosk with dual-screen support, custom UI branding, and NFC payments.",
+          icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="7" y="2" width="10" height="16" rx="2"/>
+            <path d="M10 22h4M12 18v4"/>
+            <path d="M10 6h4M10 9h4M10 12h2"/>
+            <circle cx="12" cy="13.5" r="0.75" fill="currentColor"/>
+          </svg>`
+        },
+        {
+          id: 4,
+          name: "SelfServePro 5000",
+          price: 999,
+          category: "Self-Service Kiosk",
+          description: "Our flagship kiosk — 21″ 4K display, full software suite, unlimited transactions.",
+          icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="1" width="12" height="18" rx="2"/>
+            <path d="M9 23h6M12 19v4"/>
+            <path d="M9 5h6M9 8h6M9 11h3M9 14h6"/>
+          </svg>`
+        },
+        {
+          id: 5,
+          name: "SwipeEase Lite",
+          price: 39,
+          category: "Card Reader",
+          description: "Budget-friendly card reader for start-ups taking their first card payments.",
+          icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="7" width="16" height="11" rx="2"/>
+            <path d="M4 11h16"/>
+            <path d="M8 15h3"/>
+          </svg>`
+        }
+      ];
+    %>
+
+    <!-- Page header -->
+    <div class="ShopHero">
+      <div class="ShopHero__text">
+        <h1>Shop Hardware</h1>
+        <p>Everything you need to start taking payments, manage orders and serve customers — delivered to your door.</p>
+      </div>
+      <div class="ShopHero__cart">
+        <div class="ShopCartSummary">
+          <div class="ShopCartSummary__meta">
+            <span class="ShopCartSummary__label">Your cart</span>
+            <span class="ShopCartSummary__count"><%= locals.totalQuantity %> item<%= locals.totalQuantity === 1 ? '' : 's' %></span>
+          </div>
+          <div class="ShopCartSummary__total">£<%= cartTotal.toFixed(2) %></div>
+          <form action="/Cart" method="GET">
+            <button type="submit" class="btn-cart">View Cart</button>
+          </form>
+        </div>
+      </div>
     </div>
 
-    <!-- Product Section -->
-    <div>
-      <h1 class="title-center">Select Your Products</h1>
-    </div>
-
-    <!-- Shop Container -->
-    <div class="shop-container">
-      <% const products = [ { id: 0, name: "TransactPro", price: 45, image:
-      "/img/ProductPos_1.webp" }, { id: 1, name: "SwipeEase", price: 50, image:
-      "/img/ProductCardReader_2.webp" }, { id: 2, name: "SelfServe", price: 799,
-      image: "/img/ProductSelfService_3.webp" }, { id: 3, name: "SelfServePro",
-      price: 850, image: "/img/ProductSelfService_3.webp" }, { id: 4, name:
-      "SelfServePro5000", price: 999, image: "/img/ProductSelfService_3.webp" },
-      { id: 5, name: "SelfServePro", price: 39, image:
-      "/img/ProductSelfService_3.webp" } ]; %> <% products.forEach(product => {
-      %>
-      <div class="shop-item">
-        <img src="<%= product.image %>" alt="<%= product.name %>" />
-        <h2><%= product.name %></h2>
-        <h3>£<%= product.price %></h3>
-        <form action="/Cart/add" method="POST" class="add-to-cart-form">
-          <input type="hidden" name="id" value="<%= product.id %>" />
-          <input type="hidden" name="name" value="<%= product.name %>" />
-          <input type="hidden" name="price" value="<%= product.price %>" />
-          <button type="submit" class="btn-add">Add to Cart</button>
-        </form>
+    <!-- Products grid -->
+    <div class="ShopGrid">
+      <% products.forEach(product => { %>
+      <div class="ShopCard">
+        <div class="ShopCard__icon">
+          <%- product.icon %>
+        </div>
+        <span class="ShopCard__category"><%= product.category %></span>
+        <h2 class="ShopCard__name"><%= product.name %></h2>
+        <p class="ShopCard__desc"><%= product.description %></p>
+        <div class="ShopCard__footer">
+          <span class="ShopCard__price">£<%= product.price %></span>
+          <form action="/Cart/add" method="POST">
+            <input type="hidden" name="id"    value="<%= product.id %>" />
+            <input type="hidden" name="name"  value="<%= product.name %>" />
+            <input type="hidden" name="price" value="<%= product.price %>" />
+            <button type="submit" class="btn-add">Add to Cart</button>
+          </form>
+        </div>
       </div>
       <% }) %>
     </div>
