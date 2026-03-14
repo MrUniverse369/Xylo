@@ -787,7 +787,7 @@
     height: 64px;
     object-fit: contain;
     border-radius: 50%;
-    background-color: rgba(255,255,255,0.05);
+    background-color: rgba(255,255,255,1.0);
     padding: 12px;
     margin-bottom: 20px;
   }
