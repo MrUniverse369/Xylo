@@ -7,87 +7,104 @@
   </head>
   <body>
     <%- include('header.ejs') %>
+
     <div class="ProductsContainer">
-      <div class="ProductsItem2">
-        <img src="/img/SmartTools_2.jpg" />
+
+      <!-- Hero -->
+      <div class="ProductsHero">
+        <h1>Built for every kind of business</h1>
+        <p>From compact card readers to full self-service kiosks — XYLO has the hardware and software your operation needs.</p>
       </div>
-      <div class="ProductsItem1">
-        <div>
-          <h3>Discover Top Point of Sale Systems for Your Business</h3>
-          <p>
-            Browse our selection of premium Point of Sale (POS) systems from
-            leading brands. Whether you're looking for compact designs, advanced
-            software features, or all-in-one solutions, we offer a range of
-            options to suit every business need. From retail stores and
-            restaurants to service-based operations, our POS systems deliver
-            seamless transactions, inventory management, and real-time
-            reporting. Compare features across brands and choose the ideal
-            system to streamline your business operations with ease.
+
+      <!-- Icon cards -->
+      <div class="ProductsGrid">
+
+        <!-- POS Systems -->
+        <div class="ProductCard">
+          <div class="ProductCard__icon">
+            <!-- Monitor / till SVG -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="3" width="20" height="13" rx="2"/>
+              <path d="M8 21h8M12 17v4"/>
+              <path d="M7 8h2M11 8h6M7 11h4M13 11h4"/>
+            </svg>
+          </div>
+          <p class="ProductCard__number">01 — Point of Sale</p>
+          <h2 class="ProductCard__title">Point of Sale Systems</h2>
+          <p class="ProductCard__desc">
+            Browse our selection of premium POS systems from leading brands. Whether you need compact designs, advanced software features, or all-in-one solutions — we have the right fit for retail, restaurants, and service-based operations.
           </p>
-          <ul style="list-style-type: none; padding: 0; display: flex">
-            <li style="margin-right: 10px">
-              <a class="btn" href="/ContactSales">Learn More</a>
-            </li>
-            <li>
-              <a class="btn" href="/shop">Shop Hardware</a>
-            </li>
+          <ul class="ProductCard__features">
+            <li>Seamless payment processing</li>
+            <li>Real-time inventory management</li>
+            <li>Advanced sales reporting</li>
+            <li>Multi-location support</li>
           </ul>
+          <div class="ProductCard__actions">
+            <a class="btn" href="/ContactSales">Learn More</a>
+            <a class="btn" href="/shop">Shop Hardware</a>
+          </div>
         </div>
-      </div>
-      <div class="ProductsItem4">
-        <img src="/img/ProductSelfService_3.jpg" />
-      </div>
-      <div class="ProductsItem3">
-        <div>
-          <h2>
-            Advanced Self-Service Kiosks for Seamless Customer Experiences
-          </h2>
-          <p>
-            Enhance your business with our range of self-service kiosks from top
-            manufacturers. Perfect for retail, restaurants, and other
-            customer-facing operations, these kiosks offer a streamlined,
-            user-friendly experience. Designed for efficient transactions, order
-            placements, and information access, our kiosks feature modern
-            touchscreens and customizable interfaces to suit your business
-            needs. Improve customer engagement and reduce wait times with these
-            high-performance solutions.
+
+        <!-- Self-Service Kiosks -->
+        <div class="ProductCard">
+          <div class="ProductCard__icon">
+            <!-- Kiosk / standing terminal SVG -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <rect x="7" y="2" width="10" height="16" rx="2"/>
+              <path d="M10 22h4M12 18v4"/>
+              <path d="M10 6h4M10 9h4M10 12h2"/>
+            </svg>
+          </div>
+          <p class="ProductCard__number">02 — Self Service</p>
+          <h2 class="ProductCard__title">Self-Service Kiosks</h2>
+          <p class="ProductCard__desc">
+            Enhance your business with our range of self-service kiosks from top manufacturers. Perfect for retail, restaurants, and customer-facing operations — featuring modern touchscreens and customisable interfaces.
           </p>
-          <ul style="list-style-type: none; padding: 0; display: flex">
-            <li style="margin-right: 10px">
-              <a class="btn" href="/ContactSales">Learn More</a>
-            </li>
-            <li>
-              <a class="btn" href="/shop">Shop Hardware</a>
-            </li>
+          <ul class="ProductCard__features">
+            <li>Reduce customer wait times</li>
+            <li>Touchscreen order placement</li>
+            <li>Customisable branding &amp; UI</li>
+            <li>Contactless &amp; chip payment ready</li>
           </ul>
+          <div class="ProductCard__actions">
+            <a class="btn" href="/ContactSales">Learn More</a>
+            <a class="btn" href="/shop">Shop Hardware</a>
+          </div>
         </div>
-      </div>
-      <div class="ProductsItem6">
-        <img src="/img/ProductCardReader_1.jpg" />
-      </div>
-      <div class="ProductsItem5">
-        <div>
-          <h2>Reliable Card Readers for Every Business</h2>
-          <p>
-            Explore our selection of high-performance card readers from trusted
-            brands, designed to streamline your payment processing. Whether you
-            need a compact, mobile option or a fully-featured model with a
-            touchscreen, we offer a variety of card readers to suit businesses
-            of all sizes. Compatible with contactless, chip, and swipe payments,
-            these devices are perfect for retail stores, restaurants, and
-            service-based operations.
+
+        <!-- Card Readers -->
+        <div class="ProductCard">
+          <div class="ProductCard__icon">
+            <!-- Card reader SVG -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="6" width="18" height="13" rx="2"/>
+              <path d="M3 10h18"/>
+              <path d="M7 15h4M15 15h2"/>
+            </svg>
+          </div>
+          <p class="ProductCard__number">03 — Card Readers</p>
+          <h2 class="ProductCard__title">Card Readers</h2>
+          <p class="ProductCard__desc">
+            Explore our high-performance card readers from trusted brands, designed to streamline payment processing. From compact mobile options to fully-featured countertop models — compatible with contactless, chip, and swipe.
           </p>
-          <ul style="list-style-type: none; padding: 0; display: flex">
-            <li style="margin-right: 10px">
-              <a class="btn" href="/ContactSales">Learn More</a>
-            </li>
-            <li>
-              <a class="btn" href="/shop">Shop Hardware</a>
-            </li>
+          <ul class="ProductCard__features">
+            <li>Contactless, chip &amp; swipe</li>
+            <li>Compact &amp; portable options</li>
+            <li>Fast transaction speeds</li>
+            <li>Works with all major networks</li>
           </ul>
+          <div class="ProductCard__actions">
+            <a class="btn" href="/ContactSales">Learn More</a>
+            <a class="btn" href="/shop">Shop Hardware</a>
+          </div>
         </div>
+
       </div>
+      <!-- end ProductsGrid -->
+
     </div>
+
     <%- include('footer.ejs') %>
   </body>
 </html>

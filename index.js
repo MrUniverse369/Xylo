@@ -23,8 +23,8 @@ env.config();
     password: process.env.DBPASSWORD,
     database: process.env.DB,
     port: process.env.DBPORT
-});*/
-
+});
+*/
 
 //Server connection setup
  const db = new pg.Client({
@@ -34,6 +34,7 @@ env.config();
     }
   }); 
 app.set('view engine', 'ejs');
+
 
 //middleware
 app.use(session({
