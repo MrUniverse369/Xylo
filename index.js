@@ -15,7 +15,7 @@ const port =  process.env.PORT || 3000;
 const saltRounds = 15;
 const __dirname = dirname(fileURLToPath(import.meta.url));
 env.config();
-/*
+
 //local host connection setup
 const db = new pg.Client({
     user: process.env.DBUSER,
@@ -23,8 +23,8 @@ const db = new pg.Client({
     password: process.env.DBPASSWORD,
     database: process.env.DB,
     port: process.env.DBPORT
-});*/
-
+});
+/*
 
 //Server connection setup
  const db = new pg.Client({
@@ -34,7 +34,7 @@ const db = new pg.Client({
     }
   }); 
 app.set('view engine', 'ejs');
-
+*/
 
 //middleware
 app.use(session({
@@ -90,23 +90,69 @@ app.get("/Login", async (req,res)=>{
 // Helper function to handle authenticated user data fetching and rendering
 async function renderLoggedInPage(req, res) {
   if (req.isAuthenticated()) {
-      try {
-          const email = req.user.email;
-          const userData = await db.query("SELECT * FROM customers WHERE email = $1", [email]);
+    try {
+      const email = req.user.email;
 
-          if (userData.rows.length > 0) {
-              // Send user data to the loggedIn page
-              res.render(__dirname + "/public/views/loggedIn.ejs", { user: userData.rows[0] });
-          } else {
-              // Handle case where no user is found
-              res.redirect("/login");
-          }
-      } catch (error) {
-          console.error("Database query error:", error);
-          res.status(500).send("Internal server error");
-      }
+      // Customer base info
+      const customerResult = await db.query(
+        "SELECT * FROM customers WHERE email = $1", [email]
+      );
+      if (customerResult.rows.length === 0) return res.redirect("/login");
+      const user = customerResult.rows[0];
+
+      // Active subscription + plan name
+      const subResult = await db.query(
+        `SELECT cs.*, p.name AS plan_name, p.price_monthly, p.max_terminals, p.max_users
+         FROM customer_subscriptions cs
+         JOIN plans p ON cs.plan_id = p.id
+         WHERE cs.customer_id = $1 AND cs.status = 'active'
+         ORDER BY cs.created_at DESC LIMIT 1`,
+        [user.id]
+      );
+      const subscription = subResult.rows[0] || null;
+
+      // Last 5 orders
+      const ordersResult = await db.query(
+        `SELECT o.id, o.status, o.total, o.created_at,
+                COUNT(oi.id) AS item_count
+         FROM orders o
+         LEFT JOIN order_items oi ON oi.order_id = o.id
+         WHERE o.customer_id = $1
+         GROUP BY o.id
+         ORDER BY o.created_at DESC LIMIT 5`,
+        [user.id]
+      );
+      const orders = ordersResult.rows;
+
+      // Open support tickets
+      const ticketsResult = await db.query(
+        `SELECT id, subject, status, priority, created_at
+         FROM support_tickets
+         WHERE customer_id = $1 AND status != 'closed'
+         ORDER BY created_at DESC`,
+        [user.id]
+      );
+      const tickets = ticketsResult.rows;
+
+      // Default billing address
+      const addressResult = await db.query(
+        `SELECT * FROM addresses
+         WHERE customer_id = $1 AND type = 'billing' AND is_default = true
+         LIMIT 1`,
+        [user.id]
+      );
+      const address = addressResult.rows[0] || null;
+
+      res.render(__dirname + "/public/views/loggedIn.ejs", {
+        user, subscription, orders, tickets, address
+      });
+
+    } catch (error) {
+      console.error("Dashboard query error:", error);
+      res.status(500).send("Internal server error");
+    }
   } else {
-      res.redirect("/login");
+    res.redirect("/login");
   }
 }
 
